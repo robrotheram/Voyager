@@ -8,8 +8,6 @@ import Bar from './components/BAR.vue'
 import VueRouter from 'vue-router'
 
 
-import "./style/main.css";
-
 
 
 // 1. Use plugin.

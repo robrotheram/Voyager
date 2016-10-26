@@ -1,0 +1,112 @@
+.header{
+    width: 100%;
+    height:50px;
+    background-color: white;
+}
+
+
+header {
+    background: #ffffff none repeat scroll 0 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    display: inline-block !important;
+    line-height: 23px;
+    padding: 15px;
+    transition: all 0.5s ease 0s;
+    width: 100%;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    height:50px;
+}
+
+
+.navbar-default {
+    border: none;
+    box-sizing: border-box;
+//background: linear-gradient(to bottom, rgba(157, 220, 147, 0.1), rgba(157, 220, 147, 0)), linear-gradient(to right, #49A23B, #2D841F);
+    background-image: url("../img/brickwall.png");
+    font-family: sans-serif;
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    padding: 0 15px;
+    height: 50px;
+    color: white;
+    -webkit-user-select: none;
+    font-family: benton-sans, 'Helvetica Neue', sans-serif;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+
+.navbar-default .navbar-nav > li > a {
+    color: white;
+}
+
+
+.navbar-toggle:hover .icon-bar {
+    background-color: white !important;
+}
+
+.navi a {
+    color: #777;
+    display: block;
+    font-size: 17px;
+    font-weight: 500;
+    padding: 28px 20px;
+    text-decoration: none;
+}
+
+
+.navi i {
+    margin-right: 15px;
+    color: #5584ff;
+}
+
+.navi .active a {
+    background: #122143;
+    border-left: 5px solid #5584ff;
+    padding-left: 15px;
+}
+
+.navi a:hover {
+    background: #122143 none repeat scroll 0 0;
+    border-left: 5px solid #5584ff;
+    display: block;
+    padding-left: 15px;
+}
+
+.navbar-default {
+
+}
+
+.navbar-toggle {
+    border: none;
+}
+
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #0e1a35;
+}
+.navbar-header{
+    width: 260px;
+}
+
+@media(max-width:768px) {
+    .navbar-collapse {
+    //background: linear-gradient(to bottom, rgba(157, 220, 147, 0.1), rgba(157, 220, 147, 0)), linear-gradient(to right, #49A23B, #2D841F);
+        background-image: url("/static/img/brickwall.png");
+        border: none;
+    }
+    .navbar-nav {
+        margin: 0px -15px;
+    }
+}

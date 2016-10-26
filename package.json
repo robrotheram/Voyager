@@ -5,11 +5,11 @@
   "private": true,
   "scripts": {
     "watchify": "watchify -vd -p browserify-hmr -e src/main.js -o dist/build.js",
-    "serve": "http-server -o -c 1 -a localhost",
+    "serve": "http-server -o -c 1 -a 0.0.0.0",
     "dev": "npm-run-all --parallel watchify serve",
     "lint": "eslint --ext .js,.vue src test/unit",
     "test": "karma start karma.conf.js",
-    "build": "cross-env NODE_ENV=production browserify -g envify -p [ vueify/plugins/extract-css -o dist/build.css ] -e src/main.js | uglifyjs -c warnings=false -m > dist/build.js; usemin index.html -d dist -o dist/index.html "
+    "build": "cross-env NODE_ENV=production browserify -g envify -p [ vueify/plugins/extract-css -o dist/build.css ] -e src/main.js | uglifyjs -c warnings=false -m > dist/build.js; copyfiles -f ./static/img/* ./dist/static/img; usemin index.html -d dist -o dist/index.html "
   },
   "browserify": {
     "transform": [
@@ -19,6 +19,8 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "jQuery": "^1.7.4",
+    "jquery": "^3.1.1",
     "vue": "^2.0.1",
     "vue-router": "^2.0.1"
   },
@@ -31,6 +33,7 @@
     "babelify": "^7.2.0",
     "browserify": "^13.1.0",
     "browserify-hmr": "^0.3.1",
+    "copyfiles": "^1.0.0",
     "cross-env": "^2.0.0",
     "envify": "^3.4.1",
     "eslint": "^3.3.0",
