@@ -5,6 +5,9 @@
 </div>
 </template>
 <script>
+
+    import * as d3 from '../../../node_modules/d3'
+
     export default {
         name: 'RealTime',
         props: {
@@ -49,11 +52,11 @@
         methods: {
             init(){
 
-                console.log("Data:======",this.time);
+                console.log("Data:======",d3);
 
                 var data = this.$data;
                 data._timeWindow = this.time;
-                var d3 = this.$d3;
+                //var d3 = this.$d3;
                 var vis = d3.select('#visualisation');
                 data.maxDate = Date.now();
                 data.minDate = data.maxDate - (data._timeWindow*(1000)); //Calculate the min date as the max data - time window
@@ -119,7 +122,7 @@
                     }
                 });
                 this.$data._lineData.push({x:data.maxDate, y:Math.floor((Math.random() * 100) + 1)});
-                var lineFunc = this.$d3.svg.line()
+                var lineFunc = d3.svg.line()
                         .x(function (d) {
                             return data.xRange(d.x);
                         }).y(function (d) {
@@ -127,7 +130,7 @@
                         }).interpolate('basis');
 
                 data.xAxis.scale().domain([data.minDate, data.maxDate]);
-                var svg = this.$d3.select("body").transition();
+                var svg = d3.select("body").transition();
                 svg.select(".line").duration(750).attr('d', lineFunc(data._lineData));
                 svg.select(".x.axis").duration(750).call(data.xAxis);
             }

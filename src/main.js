@@ -6,7 +6,6 @@ import Foo from './components/FOO.vue'
 import Bar from './components/BAR.vue'
 
 import VueRouter from 'vue-router'
-import VueD3 from './vue-d3'
 
 
 
@@ -15,7 +14,6 @@ import VueD3 from './vue-d3'
 // This installs <router-view> and <router-link>,
 // and injects $router and $route to all router-enabled child components
 Vue.use(VueRouter)
-Vue.use(VueD3)
 Vue.config.devtools = true
 // 2. Define route components
 
