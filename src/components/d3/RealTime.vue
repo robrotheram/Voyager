@@ -38,18 +38,25 @@
         },
         created() {
             console.log('Component Created', d3);
+            document.addEventListener("visibilitychange", this.onVisibilitychange, false);
         },
         mounted() {
             this.init();
             this.start();
         },
         destroyed(){
-            console.log("unmounted");
-            clearInterval(this.$data.iterate);
-            this.$data._lineData = [];
-            console.log(this.$data._lineData)
+            this.stop();
         },
         methods: {
+            onVisibilitychange(){
+                if (document.hidden) {
+                    this.stop();
+
+                } else  {
+                    this.start();
+                }
+
+            },
             init(){
 
                 console.log("Data:======",d3);
@@ -110,7 +117,14 @@
                         .attr('fill', 'none');
             },
             start (){
+                console.log("Starting");
                 this.$data.iterate = setInterval(this.newData,this.interval);
+            },
+            stop(){
+                console.log("Stopping");
+                clearInterval(this.$data.iterate);
+                this.$data._lineData = [];
+                console.log(this.$data._lineData)
             },
             newData(){
                 var data = this.$data;
