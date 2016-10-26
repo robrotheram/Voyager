@@ -43,7 +43,7 @@
 
 
 
-      <router-view class="view"></router-view>
+      <router-view class="view wrapper"></router-view>
   </div>
 </template>
 

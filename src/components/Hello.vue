@@ -1,5 +1,7 @@
 <template>
   <div id="hello">
+
+    <RealTime :time="10" :interval="500" > </RealTime>
     <img src="http://vuejs.org/images/logo.png">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
@@ -9,7 +11,7 @@
       <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitter Chat</a></li>
       <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
     </ul>
-    <h2>Ecosystem hello bob</h2>
+    <p>Ecosystem hello bob</p>
     <ul>
       <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
       <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
@@ -18,19 +20,25 @@
     </ul>
 
   <img src="static/img/users.png"/>
-  
+
+
+
 </div>
 </template>
 
 <script>
-export default {
-  name: 'hello',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  }
+    import RealTime from './d3/RealTime.vue'
+    import Vue from 'vue'
+    Vue.component('RealTime', RealTime);
 
+
+export default {
+name: 'foo',
+data () {
+return {
+msg: 'Welcome to Your Vue.js App'
+}
+}
 }
 </script>
 
@@ -41,7 +49,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 
 h1, h2 {
@@ -61,4 +68,25 @@ li {
 a {
   color: #42b983;
 }
+
+path {
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+
+
+.tick line{
+    opacity: 0.5;
+}
 </style>
+
+

@@ -20,7 +20,9 @@ header {
     height:50px;
 }
 
-
+.navbar{
+    margin: 0px !important;
+}
 .navbar-default {
     border: none;
     box-sizing: border-box;
@@ -109,4 +111,13 @@ header {
     .navbar-nav {
         margin: 0px -15px;
     }
+}
+
+.wrapper{
+    position: absolute;
+    top: -10px;
+    bottom: 0px;
+    left: 0px;
+    right:0px;
+    overflow: auto;
 }
