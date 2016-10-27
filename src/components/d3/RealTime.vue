@@ -5,9 +5,7 @@
 </div>
 </template>
 <script>
-
     import * as d3 from '../../../node_modules/d3'
-
     export default {
         name: 'RealTime',
         props: {
