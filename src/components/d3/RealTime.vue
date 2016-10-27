@@ -39,6 +39,9 @@
         created() {
             console.log('Component Created', d3);
             document.addEventListener("visibilitychange", this.onVisibilitychange, false);
+            this.$on('test', function(data){
+                alert('incoming broadcast from parent: ' + data);
+            })
         },
         mounted() {
             this.init();
@@ -47,20 +50,20 @@
         destroyed(){
             this.stop();
         },
+        events: {
+            test(test) {
+                alert('incoming broadcast from parent: ');
+            }
+        },
         methods: {
             onVisibilitychange(){
                 if (document.hidden) {
                     this.stop();
-
                 } else  {
                     this.start();
                 }
-
             },
             init(){
-
-                console.log("Data:======",d3);
-
                 var data = this.$data;
                 data._timeWindow = this.time;
                 //var d3 = this.$d3;

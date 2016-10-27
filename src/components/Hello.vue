@@ -1,7 +1,10 @@
-<template>
+<template xmlns:v-on="http://www.w3.org/1999/xhtml">
   <div id="hello">
 
     <RealTime :time="10" :interval="500" > </RealTime>
+
+    <button class="btn btn-primary" v-on:click="sendAlert">pause</button>
+
     <img src="http://vuejs.org/images/logo.png">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
@@ -23,22 +26,36 @@
 
 
 
+
 </div>
 </template>
 
 <script>
     import RealTime from './d3/RealTime.vue'
     import Vue from 'vue'
-    Vue.component('RealTime', RealTime);
+
 
 
 export default {
-name: 'foo',
-data () {
-return {
-msg: 'Welcome to Your Vue.js App'
-}
-}
+    components:{'RealTime': RealTime },
+    name: 'foo',
+    data () {
+        return {
+            msg: 'Welcome to Your Vue.js App'
+        }
+    },
+
+    methods:{
+        sendAlert: function (event) {
+            console.log("DSATA");
+            RealTime.methods.stop();
+
+            this.$broadcast('test');
+            this.$emit('test');
+            this.$dispatch('test');
+
+        }
+    }
 }
 </script>
 
