@@ -1,13 +1,16 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml">
   <div id="hello">
 
-    <RealTime :time="10" :interval="500" > </RealTime>
+    <RealTime :time="10" :interval="50" > </RealTime>
 
-    <button class="btn btn-primary" v-on:click="sendAlert">pause</button>
+    <button class="btn btn-primary" v-on:click="sendAlert">{{button_text}}</button>
 
     <img src="http://vuejs.org/images/logo.png">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
+    <hr/>
+    <p>{{doneTodosCount}}</p>
+    <hr/>
     <ul>
       <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
       <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
@@ -32,7 +35,6 @@
 
 <script>
     import RealTime from './d3/RealTime.vue'
-    import Vue from 'vue'
 
 
 
@@ -44,16 +46,22 @@ export default {
             msg: 'Welcome to Your Vue.js App'
         }
     },
+  computed: {
+    doneTodosCount () {
+      return this.$store.state.count
+    },
+    button_text(){
+      if(this.$store.state.run){return "pause"}else {return "play"}
+    }
+  },
 
     methods:{
         sendAlert: function (event) {
             console.log("DSATA");
-            RealTime.methods.stop();
-
-            this.$broadcast('test');
-            this.$emit('test');
-            this.$dispatch('test');
-
+            //this.$emit('test')
+          // this;
+          this.$store.commit('increment_N',1);
+          this.$store.commit('switch');
         }
     }
 }

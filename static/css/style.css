@@ -20,6 +20,27 @@ header {
     height:50px;
 }
 
+
+.axis path,
+.axis line{
+    fill: none;
+    stroke: black;
+}
+
+.line{
+    fill: none;
+    stroke: blue;
+    stroke-width: 2px;
+}
+
+
+.tick line{
+    opacity: 0.4;
+}
+
+
+
+
 .navbar{
     margin: 0px !important;
 }

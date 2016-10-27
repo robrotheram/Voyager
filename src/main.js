@@ -4,6 +4,7 @@ import App from './App.vue'
 import Hello from './components/Hello.vue'
 import Foo from './components/FOO.vue'
 import Bar from './components/BAR.vue'
+import store from './store'
 
 import VueRouter from 'vue-router'
 
@@ -33,5 +34,6 @@ const router = new VueRouter({
 new Vue({ // eslint-disable-line no-new
   el: '#app',
     router,
+    store,
   render: (h) => h(App)
 })

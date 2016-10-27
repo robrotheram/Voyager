@@ -39,7 +39,7 @@
         created() {
             console.log('Component Created', d3);
             document.addEventListener("visibilitychange", this.onVisibilitychange, false);
-            this.$on('test', function(data){
+            this.$root.$on('test', function(data){
                 alert('incoming broadcast from parent: ' + data);
             })
         },
@@ -58,9 +58,11 @@
         methods: {
             onVisibilitychange(){
                 if (document.hidden) {
-                    this.stop();
+                    //this.stop();
+                    this.$store.commit('switch');
                 } else  {
-                    this.start();
+                    //this.start();
+                    this.$store.commit('switch');
                 }
             },
             init(){
@@ -87,6 +89,9 @@
                         .tickSize(1)
                         .tickFormat(d3.time.format("%X"))
                         .tickSubdivide(true)
+                        .outerTickSize(0)
+                        .tickPadding(10)
+                        .innerTickSize(-data.HEIGHT)
                         .tickSize(-data.HEIGHT,0,0);
 
                 var yAxis = d3.svg.axis()
@@ -96,12 +101,6 @@
                         .tickSize(-data.WIDTH,0,0)
                         .tickSubdivide(true);
 
-                var lineFunc = d3.svg.line()
-                        .x(function (d) {
-                            return data.xRange(d.x);
-                        }).y(function (d) {
-                            return data.yRange(d.y);
-                        }).interpolate('basis');
 
                 vis.append('svg:g')
                         .attr('class', 'x axis grid')
@@ -130,26 +129,31 @@
                 console.log(this.$data._lineData)
             },
             newData(){
-                var data = this.$data;
-                data.maxDate = Date.now();
-                data.minDate = data.maxDate - (data._timeWindow*(1000)); //Calculate the min date as the max data - time window
-                data._lineData.forEach(function(point){
-                    if(point < data.minDate){
-                        data._lineData.shift();
-                    }
-                });
-                this.$data._lineData.push({x:data.maxDate, y:Math.floor((Math.random() * 100) + 1)});
-                var lineFunc = d3.svg.line()
-                        .x(function (d) {
-                            return data.xRange(d.x);
-                        }).y(function (d) {
-                            return data.yRange(d.y);
-                        }).interpolate('basis');
+                if (this.$store.state.run) {
+                    var data = this.$data;
+                    data.maxDate = Date.now();
+                    data.minDate = data.maxDate - (data._timeWindow * (1000)); //Calculate the min date as the max data - time window
 
-                data.xAxis.scale().domain([data.minDate, data.maxDate]);
-                var svg = d3.select("body").transition();
-                svg.select(".line").duration(750).attr('d', lineFunc(data._lineData));
-                svg.select(".x.axis").duration(750).call(data.xAxis);
+
+                    this.$data._lineData.push({x: data.maxDate, y: Math.floor(((Math.random() * 10) + 1)+30)});
+                    this.$data._lineData.forEach(function (point) {
+                        if (point.x < (data.minDate)) {
+                            data._lineData.shift();
+                        }
+                    });
+                    var lineFunc = d3.svg.line()
+                            .x(function (d) {
+                                return data.xRange(d.x);
+                            }).y(function (d) {
+                                return data.yRange(d.y);
+                            }).interpolate('basis');
+
+                    data.xAxis.scale().domain([data.minDate, data.maxDate]);
+                    var svg = d3.select("body").transition();
+                    svg.select(".line").duration(0).attr('d', lineFunc(this.$data._lineData ));
+                    svg.select(".x.axis").duration(0).call(data.xAxis);
+
+                }
             }
         }
     };
