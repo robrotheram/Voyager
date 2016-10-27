@@ -35,14 +35,12 @@
 
 <script>
     import RealTime from './d3/RealTime.vue'
-
-
-
 export default {
     components:{'RealTime': RealTime },
     name: 'foo',
     data () {
         return {
+
             msg: 'Welcome to Your Vue.js App'
         }
     },
