@@ -13,16 +13,16 @@ function createWebSocketPlugin (socket) {
 
         }
         store.subscribe(mutation => {
-            if (mutation.type === 'UPDATE_DATA') {
-                socket.emit('update', mutation.payload)
+            console.log("SENDINF TO WEBSCOKET!!!!!! TYPS::::", mutation.type);
+            if (mutation.type === 'increment_N') {
+                console.log("SENDINF TO WEBSCOKET!!!!!! ",mutation.payload, store.state);
+                //socket.emit('update', mutation.payload)
+
             }
         })
     }
 }
 const plugin = createWebSocketPlugin(ws);
-
-
-
 export default new Vuex.Store({
     state: {
         count: 10,
@@ -41,6 +41,6 @@ export default new Vuex.Store({
         },
         switch (state){
           state.run = !state.run;
-        }
+        },
     }
 })

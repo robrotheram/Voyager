@@ -56,10 +56,9 @@ export default {
     methods:{
         sendAlert: function (event) {
             console.log("DSATA");
-            //this.$emit('test')
-          // this;
           this.$store.commit('increment_N',1);
           this.$store.commit('switch');
+
         }
     }
 }
