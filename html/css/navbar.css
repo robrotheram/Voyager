@@ -4,8 +4,56 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 
+
+.turquoise{
+    background-color: #1abc9c;
+    fill: #1abc9c;
+    color: white;
+}
+.emeralde{
+    background-color: #2ecc71;
+    fill: #2ecc71;
+    color: white;
+}
+.river{
+    background-color: #3498db;
+    fill: #3498db;
+    color: white;
+}
+.amethyste{
+    background-color: #9b59b6;
+    fill: #9b59b6;
+    color: white;
+    color: white;
+}
+.asphalte{
+    background-color: #34495e;
+    fill: #34495e;
+    color: white;
+}
+.alizarine{
+    background-color: #e74c3c;
+    fill: #e74c3c;
+    color: white;
+}
+.flower{
+    background-color: #f1c40f;
+    fill: #f1c40f;
+    color: white;
+}
+.midnighte{
+    background-color: #2c3e50;
+    fill: #2c3e50;
+    color: white;
+}
+
+
+
+
+
 body {
     overflow-x: hidden;
+    background: #ECEFF1;
 }
 
 
@@ -16,6 +64,19 @@ body {
     margin: 10px;
     outline: 0!important
 }
+
+.row{
+    padding: 10px;
+}
+
+
+#map {
+    width: 100%;
+    height: 500px;
+    margin: 0;
+    padding: 0px;
+}
+
 
 .btn-rounded {
     -webkit-border-radius: 10em;
@@ -33,7 +94,7 @@ body {
 }
 
 .wrapper-content{
-    top: 50px;
+    margin-top: 56px;
 }
 
 .card .activator {
@@ -79,6 +140,12 @@ body {
     font-size: 1.6rem
 }
 
+.navbar{
+    border-radius: 0px;
+}
+.navbar-brand{
+    height: 40px;
+}
 /* Toggle Styles */
 
 #wrapper {
@@ -118,25 +185,24 @@ body {
 
 
 .ct-series-b .ct-area, .ct-series-b .ct-slice-pie {
-    fill: #f96868
+    fill: #f96868;
+    stroke: #f96868;
 }
 .ct-series-b .ct-area, .ct-series-b .ct-slice-pie {
     fill: #f2a654 !important;
+    stroke: #f2a654 !important;
 }
 .ct-series-c .ct-area, .ct-series-c .ct-slice-pie {
-    fill: #46be8a
+    fill: #46be8a;
+    stroke: #46be8a;
 }
 
-
-
-.ct-chart .ct-series.ct-series-a .ct-point, .ct-chart .ct-series.ct-series-a .ct-line {
-    fill: violet;
+.ct-series-b .ct-bar, .ct-series-b .ct-line, .ct-series-b .ct-point, .ct-series-b .ct-slice-donut {
+    stroke: #f2a654;
 }
-
-.ct-chart .ct-series.ct-series-b .ct-point, .ct-chart .ct-series.ct-series-b .ct-line {
-    fill: olive;
+.ct-series-c .ct-bar, .ct-series-c .ct-line, .ct-series-c .ct-point, .ct-series-c .ct-slice-donut {
+    stroke: #46be8a;
 }
-
 
 
 /* Sidebar Styles */
@@ -190,5 +256,7 @@ body {
 
 
 .jvectormap-container {
-    background-color: white;
+    background-color: #2980b9;
+    border-radius: 2px;
+    border-radius: 2px;
 }
