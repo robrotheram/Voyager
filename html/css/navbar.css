@@ -1,0 +1,194 @@
+/*!
+ * Start Bootstrap - Simple Sidebar (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+body {
+    overflow-x: hidden;
+}
+
+
+.btn-flat {
+    position: relative;
+    padding: 8px 30px;
+    border: none;
+    margin: 10px;
+    outline: 0!important
+}
+
+.btn-rounded {
+    -webkit-border-radius: 10em;
+    -moz-border-radius: 10em;
+    -ms-border-radius: 10em;
+    -o-border-radius: 10em;
+    border-radius: 10em
+}
+
+
+.btn-floating,.btn-floating i {
+    color: #fff;
+    display: inline-block;
+    line-height: 37px
+}
+
+.wrapper-content{
+    top: 50px;
+}
+
+.card .activator {
+    float: right;
+    padding: 1rem;
+    margin-right: 10px;
+    font-size: 1.2rem;
+    color: #000;
+}
+
+.fa-share-alt:before {
+    content: "\f1e0"
+}
+
+.fa-share-alt-square:before {
+    content: "\f1e1"
+}
+
+.btn-floating {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    width: 37px;
+    height: 37px;
+    padding: 0;
+    background-color: #a6c;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    transition: .3s;
+    margin: 10px
+}
+
+.btn-flat,.btn-flat:focus {
+    background-color: transparent
+}
+
+.btn-floating i {
+    width: inherit;
+    text-align: center;
+    font-size: 1.6rem
+}
+
+/* Toggle Styles */
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    overflow-x: hidden;
+}
+
+#wrapper.toggled {
+    left: 250px;
+}
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #000;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+.ct-area {
+    fill-opacity: 1;
+}
+
+
+
+.ct-series-b .ct-area, .ct-series-b .ct-slice-pie {
+    fill: #f96868
+}
+.ct-series-b .ct-area, .ct-series-b .ct-slice-pie {
+    fill: #f2a654 !important;
+}
+.ct-series-c .ct-area, .ct-series-c .ct-slice-pie {
+    fill: #46be8a
+}
+
+
+
+.ct-chart .ct-series.ct-series-a .ct-point, .ct-chart .ct-series.ct-series-a .ct-line {
+    fill: violet;
+}
+
+.ct-chart .ct-series.ct-series-b .ct-point, .ct-chart .ct-series.ct-series-b .ct-line {
+    fill: olive;
+}
+
+
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #999999;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+
+
+
+.jvectormap-container {
+    background-color: white;
+}
