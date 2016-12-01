@@ -13,7 +13,7 @@
     <title>Simple Sidebar - Start Bootstrap Template</title>
 
     <!-- Bootstrap Core CSS -->
-
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
 
@@ -131,72 +131,96 @@
                 <div class="col-lg-3">
                     <div class="card emeralde">
                         <div class="card-block">
-
-                            <p class="card-text">
-                                Current online players
-                            </p>
-
+                            <a class="avatar avatar-100 pull-left margin-right-20 " href="javascript:void(0)">
+                                <img src="images/mc/Minecraft%20Main%20Character.png" alt="">
+                            </a>
+                            <div class="vertical-align text-right height-100 text-truncate">
+                                <div class="vertical-align-middle">
+                                    <div class="font-size-20 margin-bottom-5 blue-600 text-truncate">Current Players</div>
+                                    <div class="font-size-30 text-truncate">60</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="card river">
                         <div class="card-block">
-
-                            <p class="card-text">
-                                Current TPS
-                            </p>
-
+                            <a class="avatar avatar-100 pull-left margin-right-20 " href="javascript:void(0)">
+                                <img src="images/mc/Minecraft%20Pickaxe-100.png" alt="">
+                            </a>
+                            <div class="vertical-align text-right height-100 text-truncate">
+                                <div class="vertical-align-middle">
+                                    <div class="font-size-20 margin-bottom-5 blue-600 text-truncate">Number of worlds</div>
+                                    <div class="font-size-30 text-truncate">60</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="card alizarine">
                         <div class="card-block">
-
-                            <p class="card-text">
-                                Loaded number of chunks
-                            </p>
-
+                            <a class="avatar avatar-100 pull-left margin-right-20 " href="javascript:void(0)">
+                                <img src="images/mc/Crafting%20Table-100.png" alt="">
+                            </a>
+                            <div class="vertical-align text-right height-100 text-truncate">
+                                <div class="vertical-align-middle">
+                                    <div class="font-size-20 margin-bottom-5 blue-600 text-truncate">Software</div>
+                                    <div class="font-size-30 text-truncate">paper</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="card amethyste">
                         <div class="card-block">
-
-                            <p class="card-text">
-                                uptime
-                            </p>
-
+                            <a class="avatar avatar-100 pull-left margin-right-20 " href="javascript:void(0)">
+                                <img src="images/mc/Center%20Direction.png" alt="">
+                            </a>
+                            <div class="vertical-align text-right height-100 text-truncate">
+                                <div class="vertical-align-middle">
+                                    <div class="font-size-20 margin-bottom-5 blue-600 text-truncate">Version</div>
+                                    <div class="font-size-30 text-truncate">
+                                        1.10.2</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
             </div>
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-7">
                     <div class="card">
-                        <div id="world-map" style="width: 100%; height: 500px;     background-color: rgb(255, 255, 255);"></div>
+                        <div id="world-map" style="width: 100%; height: 380px;     background-color: rgb(255, 255, 255);"></div>
                     </div>
                 </div>
 
-                <div class="col-lg-4">
-                    <div class="card" style="height: 500px">
-                        <div class="ct-chart asphalte" style="width: 100%; height:250px; position: absolute; top: 0px"></div>
-                        <div class="card-block" style="top: 250px; position: absolute; width: 100%;">
-                            <h4 class="card-title">Server Stats</h4>
-                            <hr>
+                <div class="col-lg-5">
+                    <div class="card" style="height: 380px">
+                        <div class="ct-chart asphalte" style="width: 100%; height:200px; position: absolute; top: 0px"></div>
+                        <div class="card-block" style="top: 200px; position: absolute; width: 100%;">
+                           <table class="table table-bordered">
+                               <tr>
+                                   <td>TPS:</td>
+                                   <td>30</td>
+                               </tr>
+                               <tr>
+                                   <td>CPU Load:</td>
+                                   <td>32</td>
+                               </tr>
+                               <tr>
+                                   <td>Memory </td>
+                                   <td>234</td>
+                               </tr>
+                           </table>
                         </div>
-
-
-
                     </div>
                 </div>
             </div>
             <div class="row">
-
-
                 <div class="col-lg-4" >
                     <div class="card" style="height:500px">
                         <div class="view overlay hm-white-slight">
@@ -216,8 +240,7 @@
                 </div>
                 <div class="col-lg-8">
                     <div class="card">
-                        <div id='map'></div>
-
+                        asdfsdf
                     </div>
                 </div>
 
@@ -295,12 +318,13 @@
         showLabel: true,
         axisX: {
             showGrid: true,
-            showLabel: true,
+            showLabel: false,
             type: Chartist.FixedScaleAxis,
-            divisor: 10,
+            divisor: 7,
             labelInterpolationFnc: function(value) {
-                return moment(value).format('MMM D');
-            }
+                return moment(value).format('  D / MM');
+            },
+            offset: 0
         },
         axisY: {
             showGrid: true,
