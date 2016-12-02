@@ -2631,11 +2631,18 @@ input[type=checkbox]:not(:disabled)~.lever:active:after {
 }
 
 
+.table-responsive {
+    display: table !important;
+}
+
 @media (max-width: 480px) {
     .panel-search-form {
         padding: 0px;
         margin-left: 0px;
         margin-top: 0px;
+    }
+    .table-responsive {
+        display: block !important;
     }
 }
 
@@ -2653,7 +2660,7 @@ input[type=checkbox]:not(:disabled)~.lever:active:after {
 .panel-info li {
     list-style: none;
     display: inline-block;
-    margin-right: 48px;
+    margin-right: 24px;
     text-align: center
 }
 
