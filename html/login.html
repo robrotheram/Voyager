@@ -1,0 +1,435 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+
+    <link href="css/jquery-jvectormap-2.0.3.css" rel="stylesheet">
+
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <link href="css/leaflet.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/webicons/2.0.0/webicons.min.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+
+    <link href="css/navbar.css" rel="stylesheet">
+
+    <style>
+        html {
+            background: url(http://cdn0.vox-cdn.com/uploads/chorus_asset/file/7565939/BeautifulMinecraft_11.png) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+
+
+        .jumbotron {
+            text-align: center;
+            width: 400px;
+            border-radius: 0.5rem;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            position: absolute;
+            margin: 4rem auto;
+            background-color: #fff;
+            padding: 2rem;
+            height: 600px;
+        }
+
+
+
+        .container .glyphicon-list-alt {
+            font-size: 10rem;
+            margin-top: 3rem;
+            color: #f96145;
+        }
+
+        input {
+            width: 100%;
+            margin-bottom: 1.4rem;
+            padding: 1rem;
+            background-color: #ecf2f4;
+            border-radius: 0.2rem;
+            border: none;
+        }
+        h2 {
+            margin-bottom: 3rem;
+            font-weight: bold;
+            color: #ababab;
+        }
+
+        .btn .glyphicon {
+            font-size: 3rem;
+            color: #fff;
+        }
+        .full-width {
+            background-color: #8eb5e2;
+            width: 100%;
+            -webkit-border-top-right-radius: 0;
+            -webkit-border-bottom-right-radius: 0;
+            -moz-border-radius-topright: 0;
+            -moz-border-radius-bottomright: 0;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .box {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            margin-bottom: 5rem;
+            margin-left: 3rem;
+            margin-right: 3rem;
+            height: 270px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .buttons{
+            width: 100%;
+            left: 0;
+            bottom: 1rem;
+            height: 60px;
+
+            position: absolute;
+        }
+
+        @media (max-width: 600px) {
+            .jumbotron {
+                margin: 0rem auto;
+                width: 100%;
+                height: 100%;
+                border-radius: 0px;
+
+            }
+            .box {
+                position: absolute;
+                bottom: 0px;
+                left: 0;
+                top: 300px;
+                overflow-y: auto;
+                overflow-x: hidden;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="jumbotron">
+    <div class="container">
+        <img src="images/logo.png" width="180px"/>
+        <h2>MDAT Login</h2>
+    </div>
+    <div class="box">
+        <input type="text" placeholder="username">
+        <input type="password" placeholder="password">
+        <input type="password" placeholder="password">
+    </div>
+
+    <div class="buttons">
+        <button class="btn btn-default waves-effect btn-rounded">sign in</button>
+        <button class="btn btn-cyan waves-effect btn-rounded" >Create Account </button>
+    </div>
+
+</div>
+
+
+
+<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/tether.min.js"></script>
+
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/leaflet.js"></script>
+
+<script type="text/javascript" src="js/jquery-jvectormap-2.0.3.min.js"></script>
+<script type="text/javascript" src="js/jquery-jvectormap-world-mill.js"></script>
+<script type="text/javascript" src="js/jquery-color.js"></script>
+
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+<script type="text/javascript" src="js/moment.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<!-- Menu Toggle Script -->
+<!-- Menu Toggle Script -->
+<script>
+    $(".menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+
+
+    var data = {
+        series: [
+            {
+                name: 'series-1',
+                data: [
+                    {x: new Date(143134652600), y: 53},
+                    {x: new Date(143234652600), y: 40},
+                    {x: new Date(143340052600), y: 45},
+                    {x: new Date(143366652600), y: 40},
+                    {x: new Date(143410652600), y: 20},
+                    {x: new Date(143508652600), y: 32},
+                    {x: new Date(143569652600), y: 18},
+                    {x: new Date(143579652600), y: 11}
+                ]
+            },
+            {
+                name: 'series-2',
+                data: [
+                    {x: new Date(143134652600), y: 53},
+                    {x: new Date(143234652600), y: 35},
+                    {x: new Date(143334652600), y: 30},
+                    {x: new Date(143384652600), y: 30},
+                    {x: new Date(143568652600), y: 10}
+                ]
+            },
+            {
+                name: 'series-3',
+                data: [
+                    {x: new Date(143134652600), y: 33},
+                    {x: new Date(143234652600), y: 53},
+                    {x: new Date(143334652600), y: 10},
+                    {x: new Date(143384652600), y: 32},
+                    {x: new Date(143568652600), y: 44}
+                ]
+            }
+        ]
+    };
+
+    var lineoptions = {
+        showPoint: false,
+        showLine: true,
+        showArea: false,
+        fullWidth: true,
+        showLabel: true,
+        axisX: {
+            showGrid: true,
+            showLabel: false,
+            type: Chartist.FixedScaleAxis,
+            divisor: 7,
+            labelInterpolationFnc: function(value) {
+                return moment(value).format('  D / MM');
+            },
+            offset: 0
+        },
+        axisY: {
+            showGrid: true,
+            showLabel: false,
+            offset: 0
+        },
+        chartPadding: 0,
+        low: 0
+    }
+
+    new Chartist.Line('#linechart', data, lineoptions);
+
+
+    var bdata ={
+        labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        series: [
+            [160, 390, 280, 440, 410, 360, 200],
+            [440, 210, 320, 160, 190, 240, 400]
+        ]
+    }
+
+    var baroptions = {
+        stackBars: !0,
+        fullWidth: !0,
+        seriesBarDistance: 0,
+        chartPadding: 30,
+        axisX: {
+            showLabel: !0,
+            showGrid: !1,
+            offset: 30
+        },
+        axisY: {
+            showLabel: !0,
+            showGrid: !1,
+            offset: 0,
+            labelOffset: {
+                x: 0,
+                y: 15
+            }
+        }
+    }
+
+
+    new Chartist.Bar("#barchart",bdata, baroptions);
+    new Chartist.Bar("#w2chart",bdata, baroptions);
+    new Chartist.Bar("#w3chart",bdata, baroptions);
+
+
+
+    var regionStyling = {initial: {fill: 'white'},hover: {fill: "#A0D1DC"}};
+
+
+
+
+    jQuery('#world-map').vectorMap({
+        map: 'world_mill',
+        normalizeFunction: 'polynomial',
+        regionStyle:regionStyling,
+        backgroundColor: '',
+        //series: {regions: [{values: {},attribute: 'fill'}],
+        markerStyle: {
+            initial: {
+                r: 8,
+                fill: "#27ae60",
+                "stroke-width": 0
+            },
+            hover: {
+                r: 12,
+                "stroke-width": 0
+            }
+        },
+        markers: [
+            {latLng: [41.90, 12.45], name: 'Vatican City'},
+            {latLng: [43.73, 7.41], name: 'Monaco'},
+            {latLng: [-0.52, 166.93], name: 'Nauru'},
+
+            {latLng: [3.2, 73.22], name: 'Maldives'},
+
+        ]
+
+
+
+    });
+
+
+
+    var map = L.map('map', {
+        crs: L.CRS.Simple,
+        zoom: 9,
+        maxZoom: 9,
+        continuousWorld: true,
+        noWrap: true
+    });
+    L.GridLayer.DebugCoords = L.GridLayer.extend({
+        createTile: function (coords, done) {
+            var tile = document.createElement('div');
+            tile.innerHTML = [coords.z, coords.x, coords.y, ].join(', ');
+            tile.style.outline = '1px solid red';
+            tile.style.color = 'red';
+            setTimeout(function () {
+                done(null, tile);	// Syntax is 'done(error, tile)'
+            }, 500 + Math.random() * 1500);
+            return tile;
+        }
+    });
+    L.tileLayer('http://localhost:8888/{server}/tile/{world}/{z}/{x}/{y}', {
+        server:"testACCOUNT",
+        world:"world"
+    }).addTo(map);
+    L.gridLayer.debugCoords = function(opts) {
+        return new L.GridLayer.DebugCoords(opts);
+    };
+    map.addLayer( L.gridLayer.debugCoords() );
+    map.setView(map.unproject([8*256, -11*256]), 9);
+
+
+
+    if (typeof(Number.prototype.toRad) === "undefined") {
+        Number.prototype.toRad = function() {
+            return this * Math.PI / 180;
+        }
+    }
+
+
+    function getTileURL(lat, lon, zoom) {
+        console.log(lat,lon)
+        var xtile = parseInt(Math.floor( (lon + 180) / 360 * (1<<zoom) ));
+        var ytile = parseInt(Math.floor( (1 - Math.log(Math.tan(lat.toRad()) + 1 / Math.cos(lat.toRad())) / Math.PI) / 2 * (1<<zoom) ));
+        return "" + zoom + "/" + (xtile-256) + "/" + ytile;
+    }
+
+
+    map.on('click', function (e) {
+        alert(map.project(e.latlng).divideBy(256).floor())
+        var p = map.unproject([8*256, -11*256])
+        console.log(p)
+        //url = getTileURL(e.latlng.lat, e.latlng.lng, map.getZoom())
+       // console.log(url);
+        //alert(url);
+    });
+
+
+
+    function onMapClick(e) {
+        //Project the map click to x,y coordinates
+        //This projection is the actual XY coordinates of the image layer
+        //This coordinate is scaled by the amount the image is zoomed.
+        var clientClick = map.project(e.latlng);
+
+        //Grab the original overlay
+        var overlayImage = overlay._image;
+
+        //Calculate the current image ratio from the original (deals with zoom)
+        var yR = overlayImage.clientHeight / overlayImage.naturalHeight;
+        var xR = overlayImage.clientWidth / overlayImage.naturalWidth;
+
+        //scale the click coordinates to the original dimensions
+        //basically compensating for the scaling calculated by the map projection
+        var x = clientClick.x / xR;
+        var y = clientClick.y / yR;
+        console.log(x,y);
+    }
+
+
+    function tile2long(x,z) { return (x/Math.pow(2,z)*360-180); }
+
+    function tile2lat(y,z) {
+        var n=Math.PI-2*Math.PI*y/Math.pow(2,z);
+        return (180/Math.PI*Math.atan(0.5*(Math.exp(n)-Math.exp(-n))));
+    }
+
+
+    function pixelToBlock(p){
+        return ((p/256)*16)
+    }
+
+    console.log(tile2lat(8,9))
+    console.log(tile2long(-11,9))
+
+
+
+
+
+</script>
+
+</body>
+
+</html>
