@@ -47,14 +47,6 @@
 <header>
     <!--Navbar-->
     <nav class="navbar navbar-dark navbar-fixed-top scrolling-navbar primary-color">
-
-
-
-
-        <div class="container">
-
-            <!--Collapse content-->
-            <div class="collapse navbar-toggleable-xs" id="collapseEx2">
                 <!-- SideNav slide-out button -->
                 <div class="pull-left">
                     <a href=".menu-toggle" data-activates="slide-out" class="button-collapse navbar-brand menu-toggle"><i class="fa fa-bars"></i></a>
@@ -79,10 +71,6 @@
                 </ul>
                 <!--Search form-->
 
-            </div>
-            <!--/.Collapse content-->
-
-        </div>
 
     </nav>
 </header>
@@ -162,11 +150,11 @@
             <ul class="nav navbar-nav float-lg-right">
                 <li class="nav-item" style="padding: 5px">
                     <form class="form-inline" style="height: 50px; margin-top: -8px">
-                        <a class="btn-floating btn-large blue" style="top:10px; padding: 0px; margin: 0px"><i class="fa fa-angle-left"></i></a>
-                        <div class="md-form form-group" style="margin-right: 0px">
-                            <input type="email" id="form91" class="form-control validate custom-time-input"  value="10/12/2016   10:33"/>
+                        <a class="btn-floating btn-large blue" style="display:inline-block; top:10px; padding: 0px; margin: 0px"><i class="fa fa-angle-left"></i></a>
+                        <div class="md-form custom-frm form-group">
+                            <input style="display:inline-block; margin: 0 5px 1px 0px;" type="email" id="form91" class="form-control validate custom-time-input"  value="10/12/2016   10:33"  />
                         </div>
-                        <a class="btn-floating btn-large blue" style="top:10px; padding: 0px; margin: 0px"><i class="fa fa-angle-right"></i></a>
+                        <a class="btn-floating btn-large blue" style="display:inline-block; top:10px; padding: 0px; margin: 0px"><i class="fa fa-angle-right"></i></a>
                     </form>
                 </li>
             </ul>
@@ -176,7 +164,7 @@
 
             <div class="row">
                 <div class="col-lg-12" >
-                    <div class="card river" style="height:300px; padding: 20px">
+                    <div class="card river" style="min-height:300px; padding: 20px">
                         <div class="row" style="margin-top: -20px">
                             <div class="col-md-2">
                                 <div class="font-size-20 margin-bottom-20">World Data</div>
@@ -212,7 +200,7 @@
 
 
                             </div>
-                            <div class="col-md-10">
+                            <div class="col-md-10" style="min-height: 300px">
                                 <div  id="w3chart" class="ct-chart" style="width: 100%; height:300px; position: absolute; top: 0px"></div>
                             </div>
 

@@ -2625,9 +2625,21 @@ input[type=checkbox]:not(:disabled)~.lever:active:after {
 }
 
 .panel-search-form {
-    padding: 19px;
-    margin-left: 20px;
+    padding: 0px;
+    margin-left: 10px;
+    margin-top: 18px;
 }
+
+
+@media (max-width: 480px) {
+    .panel-search-form {
+        padding: 0px;
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+}
+
+
 .panel-search-form, .app-work .panel-title {
     float: left;
 }
@@ -2641,7 +2653,7 @@ input[type=checkbox]:not(:disabled)~.lever:active:after {
 .panel-info li {
     list-style: none;
     display: inline-block;
-    margin-right: 50px;
+    margin-right: 48px;
     text-align: center
 }
 
@@ -2898,8 +2910,15 @@ input[type=checkbox]:not(:disabled)~.lever:active:after {
 
 
 
+.custom-frm{
+    display: inline-block; margin-right: 0px!important;
+}
 
-
+@media (max-width: 480px) {
+    .custom-frm{
+        top: -5px;
+    }
+}
 
 
 
@@ -2910,7 +2929,7 @@ input[type=checkbox]:not(:disabled)~.lever:active:after {
     background-color: white !important;
     border-radius: 2px !important;
     color: black !important;
-    padding-left: 5px !important;
+    padding-left: 0px !important;
     text-align-last: center !important;
     border: 0px solid !important;
     font-size: 12px !important;
