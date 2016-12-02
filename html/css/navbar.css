@@ -13,6 +13,16 @@ body {
     font-weight: 300
 }
 
+
+
+.invert {
+    -webkit-filter: invert(1);
+    filter: invert(1);
+}
+
+.leaflet-container .leaflet-control-attribution, .leaflet-container .leaflet-control-scale{
+    display: none;
+}
 .turquoise{
     background-color: #1abc9c;
     fill: #1abc9c;
@@ -775,6 +785,29 @@ body {
     background: #263238;
     -webkit-box-shadow: 0 2px 4px rgba(0,0,0,.08);
     box-shadow: 0 2px 4px rgba(0,0,0,.08)
+}
+
+
+.card .form-header {
+    color: #fff;
+    text-align: center;
+    margin-top: -50px;
+    margin-bottom: 3rem;
+    padding: 1rem;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px
+}
+
+.card .form-header h3 {
+    margin: 0;
+    padding: .7rem
+}
+
+.fixed-sn main,.hidden-sn main {
+    padding-top: 5.5rem
 }
 
 .site-menu {
@@ -2358,11 +2391,11 @@ select:disabled {
 }
 
 .switch label input[type=checkbox]:checked+.lever {
-    background-color: #dccfe2
+    background-color: #19368c !important;
 }
 
 .switch label input[type=checkbox]:checked+.lever:after {
-    background-color: #a6c
+    background-color: #4285F4!important
 }
 
 .switch label .lever {
