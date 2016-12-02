@@ -39,15 +39,70 @@
 
     <link href="css/navbar.css" rel="stylesheet">
 
+    <style>
+        .table td, .table th{
+            vertical-align: middle;
+            font-size: 16px;
+            text-align: center;
+            padding: 20px;
+
+        }
+
+        .borderless td, .borderless th {
+            border: none;
+        }
+
+        .form-control.round {
+            border-radius: 200px;
+        }
+        .form-control {
+            -webkit-appearance: none;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            -webkit-transition: -webkit-box-shadow .25s linear,border .25s linear,color .25s linear,background-color .25s linear;
+            -o-transition: box-shadow .25s linear,border .25s linear,color .25s linear,background-color .25s linear;
+            transition: box-shadow .25s linear,border .25s linear,color .25s linear,background-color .25s linear;
+            -moz-appearance: none;
+        }
+        input[type=date],input[type=datetime-local],input[type=email],input[type=number],input[type=password],input[type=search-md],input[type=search],input[type=tel],input[type=text],input[type=time],input[type=url],textarea.md-textarea {
+            display: block;
+            padding: 0px 10px 0px 10px;
+            width: 100%;
+            height: 36px;
+            font-size: 14px;
+            line-height: 1.57142857;
+            color: #76838f;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #e4eaec;
+            border-radius: 3px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            margin-bottom: 0px;
+        }
+
+        input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=search-md]:focus:not([readonly]), input[type=search]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=url]:focus:not([readonly]), textarea.md-textarea:focus:not([readonly]) {
+            border-bottom: 0px solid #4285F4;
+            box-shadow: 0 1px 0 0 #4285F4;
+        }
+
+        input[type=date]:disabled, input[type=date][readonly=readonly], input[type=datetime-local]:disabled, input[type=datetime-local][readonly=readonly], input[type=email]:disabled, input[type=email][readonly=readonly], input[type=number]:disabled, input[type=number][readonly=readonly], input[type=password]:disabled, input[type=password][readonly=readonly], input[type=search-md]:disabled, input[type=search-md][readonly=readonly], input[type=search]:disabled, input[type=search][readonly=readonly], input[type=tel]:disabled, input[type=tel][readonly=readonly], input[type=text]:disabled, input[type=text][readonly=readonly], input[type=time]:disabled, input[type=time][readonly=readonly], input[type=url]:disabled, input[type=url][readonly=readonly], textarea.md-textarea:disabled, textarea.md-textarea[readonly=readonly] {
+            color: rgba(0,0,0,.46);
+            border: 1px solid #e4eaec;
+            background-color: rgb(250, 250, 250);
+        }
+
+    </style>
+
 </head>
 
 <body>
 <header>
     <!--Navbar-->
     <nav class="navbar navbar-dark navbar-fixed-top scrolling-navbar primary-color">
-
-
-
 
         <div class="container">
 
@@ -60,9 +115,11 @@
 
                 <!-- Breadcrumb-->
                 <div class="navbar-brand">
-                    <p>MDB Admin</p>
+                    <a href=".menu-toggle" class="menu-toggle"><p style="color: white">MDB Admin</p></a>
                 </div>
-                <!--Links-->
+
+
+                <!--
                 <ul class="nav navbar-nav float-lg-right">
                     <li class="nav-item active">
                         <a class="nav-link">Home <span class="sr-only">(current)</span></a>
@@ -111,82 +168,29 @@
                 <div class="scrollable-content" style="width: 280px;">
                     <ul class="site-menu">
                         <li class="site-menu-item has-sub">
-                            <a href="javascript:void(0)">
-                                <span class="site-menu-title">Dashboard</span>
+                            <a href="dashboard.html">
+                                <span class="site-menu-title">Overview Dashboard</span>
                                 <div class="site-menu-badge">
                                     <span class="badge badge-success">3</span>
                                 </div>
                             </a>
                         </li>
                         <li class="site-menu-item has-sub">
-                            <a href="javascript:void(0)">
-                                <span class="site-menu-title">Layouts</span>
+                            <a href="world.html">
+                                <span class="site-menu-title">Per World</span>
                                 <span class="fa fa-angle-right site-menu-arrow"></span>
                             </a>
                         </li>
                         <li class="site-menu-item has-sub">
-                            <a href="javascript:void(0)">
-                                <span class="site-menu-title">Pages</span>
+                            <a href="server.html">
+                                <span class="site-menu-title">Server Settings</span>
                                 <span class="fa fa-angle-right site-menu-arrow"></span>
                             </a>
                         </li>
                         <li class="site-menu-item has-sub">
-                            <a href="javascript:void(0)">
-                                <span class="site-menu-title">Basic UI</span>
+                            <a href="users.html">
+                                <span class="site-menu-title">Profile Settings</span>
                                 <span class="fa fa-angle-right site-menu-arrow"></span>
-                            </a>
-                        </li>
-                        <li class="site-menu-item has-sub">
-                            <a href="javascript:void(0)">
-                                <span class="site-menu-title">Advanced UI</span>
-                                <span class="fa fa-angle-right site-menu-arrow"></span>
-                            </a>
-                        </li>
-                        <li class="site-menu-item has-sub">
-                            <a href="javascript:void(0)">
-                                <span class="site-menu-title">Structure</span>
-                                <span class="site-menu-arrow site-menu-arrow"></span>
-                            </a>
-                        </li>
-                        <li class="site-menu-item has-sub">
-                            <a href="javascript:void(0)">
-                                <span class="site-menu-title">Widgets</span>
-                                <span class="site-menu-arrow site-menu-arrow"></span>
-                            </a>
-                        </li>
-                        <li class="site-menu-item has-sub">
-                            <a href="javascript:void(0)">
-                                <span class="site-menu-title">Forms</span>
-                                <span class="site-menu-arrow site-menu-arrow"></span>
-                            </a>
-                        </li>
-                        <li class="site-menu-item has-sub">
-                            <a href="javascript:void(0)">
-                                <span class="site-menu-title">Tables</span>
-                                <span class="site-menu-arrow site-menu-arrow"></span>
-                            </a>
-
-                        </li>
-                        <li class="site-menu-item has-sub">
-                            <a href="javascript:void(0)">
-                                <span class="site-menu-title">Chart</span>
-                                <span class="site-menu-arrow site-menu-arrow"></span>
-                            </a>
-
-                        </li>
-                        <li class="site-menu-item has-sub">
-                            <a href="javascript:void(0)">
-                                <span class="site-menu-title">Apps</span>
-                                <span class="site-menu-arrow"></span>
-                            </a>
-
-                        </li>
-                        <li class="site-menu-item">
-                            <a class="animsition-link" href="angular/index.html">
-                                <span class="site-menu-title">Angular UI</span>
-                                <div class="site-menu-label">
-                                    <span class="label label-danger label-round">new</span>
-                                </div>
                             </a>
                         </li>
                     </ul>
@@ -202,139 +206,135 @@
         <!--/.Navbar-->
         <div class="container-fluid" style="padding: 25px">
             <div class="row">
-                <div class="col-lg-3">
-                    <div class="card turquoise">
-                        <div class="card-block">
-                            <a class=" avatar-100 pull-left margin-right-20 " href="javascript:void(0)">
-                                <img src="images/mc/Minecraft%20Main%20Character.png" alt="" width="75px" class="invert">
-                            </a>
-                            <div class="vertical-align text-right height-100 text-truncate">
-                                <div class="vertical-align-middle">
-                                    <div class="font-size-18 margin-bottom-5 blue-600 text-truncate">Current Players</div>
-                                    <div class="font-size-30 text-truncate">60</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="card river">
-                        <div class="card-block">
-                            <a class="avatar avatar-100 pull-left margin-right-20 " href="javascript:void(0)">
-                                <img src="images/mc/Minecraft%20Pickaxe-100.png" alt="" width="75px" class="invert">
-                            </a>
-                            <div class="vertical-align text-right height-100 text-truncate">
-                                <div class="vertical-align-middle">
-                                    <div class="font-size-18 margin-bottom-5 blue-600 text-truncate">Number of worlds</div>
-                                    <div class="font-size-30 text-truncate">60</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="card alizarine">
-                        <div class="card-block">
-                            <a class="avatar avatar-100 pull-left margin-right-20 " href="javascript:void(0)">
-                                <img src="images/mc/Minecraft%20Diamond.png" alt="" width="75px"  class="invert">
-                            </a>
-                            <div class="vertical-align text-right height-100 text-truncate">
-                                <div class="vertical-align-middle">
-                                    <div class="font-size-18 margin-bottom-5 blue-600 text-truncate">Current TPS</div>
-                                    <div class="font-size-30 text-truncate">55</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="card amethyste">
-                        <div class="card-block">
-                            <a class="avatar avatar-100 pull-left margin-right-20 " href="javascript:void(0)">
-                                <img src="images/mc/Center%20Direction.png" alt="" width="75px"  class="invert">
-                            </a>
-                            <div class="vertical-align text-right height-100 text-truncate">
-                                <div class="vertical-align-middle">
-                                    <div class="font-size-18 margin-bottom-5 blue-600 text-truncate">Current Memory</div>
-                                    <div class="font-size-30 text-truncate">
-                                        1010/22323</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="col-md-12 personal-info">
 
-            </div>
-
-            <div class="row">
-                <div class="col-lg-4" >
-                    <div class="card emeralde" style="height:300px; padding: 20px">
-                        <div class="font-size-20 margin-bottom-20">Average Players online</div>
-                        <div  id="barchart" class="ct-chart" style="width: 100%; height:250px; position: absolute; top: 50px"></div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4" >
-                    <div class="card cyan" style="height:300px; padding: 20px">
-                        <div class="font-size-20 margin-bottom-20">Average TPS</div>
-                        <div  id="w2chart" class="ct-chart" style="width: 100%; height:250px; position: absolute; top: 50px"></div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4" >
-                    <div class="card bluegrey" style="height:300px; padding: 20px">
-                        <div class="font-size-20 margin-bottom-20">Average Enity count</div>
-                        <div  id="w3chart" class="ct-chart" style="width: 100%; height:250px; position: absolute; top: 50px"></div>
-                    </div>
-                </div>
-
-
-            </div>
-            <div class="row">
-                <div class="col-lg-7">
                     <div class="card">
-                        <div id="world-map" style="width: 100%; height: 530px;     background-color: rgb(255, 255, 255);"></div>
-                    </div>
-                </div>
+                        <div class="card-header white-text river">
+                            <h1 style="
+    display: inline-block;
+    float: left;
+    font-size: 32px;
+    vertical-align: middle;
+    padding-top: 16px;
+">Servers</h1>
+                            <form class="panel-search-form" role="search">
+                                <div class="input-search">
+                                    <i class="fa fa-search" aria-hidden="true" style="    position: absolute;
+    top: 9px;
+    color: rgb(85, 89, 92);
+    left: 10px;"></i>
+                                    <input type="text" class="form-control" id="inputSearch" name="search" placeholder="Search List" style="    border: 0;
+    border-radius: 17px;
+    width: 280px;
+    background-color: #f8fafb;
+    margin: 0px;
+    height: 32px;
+    padding: 0px 20px 0 30px;">
+                                    <i class="icon md-refresh"></i>
+                                </div>
+                            </form>
+                            <ul class="panel-info">
+                                <li>
+                                    <div class="num">23</div>
+                                    <p>Dead</p>
+                                </li>
+                                <li>
+                                    <div class="num">8</div>
+                                    <p>Inactive</p>
+                                </li>
+                                <li>
+                                    <div class="num">5</div>
+                                    <p>Alive</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Status</th>
+                                    <th>Server Name</th>
+                                    <th>Ip address </th>
+                                    <th>API Key</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <span class="label label-success">Active</span>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" id="inputRounded" disabled>
+                                    </td>
+                                    <td>
+                                        <input type="text" id="form1" class="form-control" disabled>
+                                    </td>
+                                    <td>
+                                        <input type="text" id="form1" class="form-control" disabled>
+                                    </td>
+                                    <td>
+                                        <button class="btn label-success" style="padding: 8px 24px 8px 24px;"><i class="fa fa-pencil"></i></button>
 
-                <div class="col-lg-5">
-                    <div class="card" style="height: 530px">
-                        <div  id="linechart" class="ct-chart asphalte" style="width: 100%; height:200px; position: absolute; top: 0px"></div>
-                        <div class="card-block" style="top: 200px; position: absolute; width: 100%;">
-                            <table class="table table-bordered">
-                                <tr>
-                                    <td>TPS:</td>
-                                    <td>30</td>
+                                        <button class="btn label-primary" style="padding: 8px 24px 8px 24px;"><i class="fa fa-trash"></i></button>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>CPU Load:</td>
-                                    <td>32</td>
+                                    <td>
+                                        <span class="label label-success">Active</span>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" id="inputRounded" disabled>
+                                    </td>
+                                    <td>
+                                        <input type="text" id="form1" class="form-control" disabled>
+                                    </td>
+                                    <td>
+                                        <input type="text" id="form1" class="form-control" disabled>
+                                    </td>
+                                    <td>
+                                        <button class="btn label-success" style="padding: 8px 24px 8px 24px;"><i class="fa fa-pencil"></i></button>
+
+                                        <button class="btn label-primary" style="padding: 8px 24px 8px 24px;"><i class="fa fa-trash"></i></button>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>Memory </td>
-                                    <td>234</td>
+                                    <td>
+                                        <span class="label label-success">Active</span>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" id="inputRounded" disabled>
+                                    </td>
+                                    <td>
+                                        <input type="text" id="form1" class="form-control" disabled>
+                                    </td>
+                                    <td>
+                                        <input type="text" id="form1" class="form-control" disabled>
+                                    </td>
+                                    <td>
+                                        <button class="btn label-success" style="padding: 8px 24px 8px 24px;"><i class="fa fa-pencil"></i></button>
+
+                                        <button class="btn label-primary" style="padding: 8px 24px 8px 24px;"><i class="fa fa-trash"></i></button>
+                                    </td>
                                 </tr>
-                                <tr>
-                                    <td>Network </td>
-                                    <td>234</td>
-                                </tr>
-                                <tr>
-                                    <td>Enities </td>
-                                    <td>234</td>
-                                </tr>
-                                <tr>
-                                    <td>Chunks </td>
-                                    <td>234</td>
-                                </tr>
+
+
+
+                                </tbody>
                             </table>
                         </div>
+                        <div class="panel-footer">
+                        </div>
                     </div>
+
+
+
+
                 </div>
             </div>
+
         </div>
     </div>
-    <!-- /#page-content-wrapper -->
-
 </div>
 
 
