@@ -1,15 +1,17 @@
 .navbar{
   border-radius: 0px;
   z-index: 4000;
+  padding-top: 12px;
+  padding-left: 12px;
 }
 .navbar-brand{
   height: 40px;
+
 }
 .navbar-brand {
   float: left;
-  padding-top: .25rem;
-  padding-bottom: .25rem;
-  margin-right: 1rem;
+ padding: 0px;
+  margin-right: 16px;
   font-size: 1.25rem;
   line-height: inherit;
 }

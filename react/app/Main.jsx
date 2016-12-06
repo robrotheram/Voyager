@@ -73,8 +73,6 @@ var MainLayout = React.createClass({
         )
     }
 })
-
-
 const Logout = React.createClass({
     componentDidMount() {
         auth.logout()
