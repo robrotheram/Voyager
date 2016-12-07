@@ -19,7 +19,7 @@ var Nav = React.createClass({
                     <div className="float-xs-left">
                         <a onClick={this.onTextChanged}  className=" navbar-brand button-collapse menu-toggle"><i className="fa fa-bars"></i></a>
                     </div>
-                    <div className=" navbar-brand breadcrumb-dn">
+                    <div onClick={this.onTextChanged} className=" navbar-brand breadcrumb-dn">
                         <p>MDAT</p>{this.props.text}
                     </div>
                 </nav>

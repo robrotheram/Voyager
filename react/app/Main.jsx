@@ -7,7 +7,7 @@ import auth from './auth.jsx'
 import Login from './Login.jsx'
 import Register from './Register.jsx'
 import Dashboard from "./Dashboard.jsx";
-
+import World from './World.jsx'
 var Home = React.createClass({
     render: function() {
         return (<h1>Welcome to the Home Page</h1>);
@@ -102,7 +102,8 @@ const Main = React.createClass({
 
                     <Route path="register" component={Register} />
                     <Route path="dashboard" component={Dashboard} onEnter={requireAuth} />
-                    <IndexRoute component={Home} onEnter={requireAuth}/>
+                    <Route path="world" component={World} onEnter={requireAuth} />
+                    <IndexRoute component={Dashboard} onEnter={requireAuth}/>
                     <Route path="users" onEnter={requireAuth} component={Users} />
                     <Route path="widgets" onEnter={requireAuth}  component={Widgets} />
                     <Route path='*' component={Login} />

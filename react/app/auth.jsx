@@ -17,7 +17,6 @@ module.exports = {
             }
         })
     },
-
     getToken() {
         return localStorage.token
     },
@@ -34,7 +33,6 @@ module.exports = {
 
     onChange() {}
 }
-
 function pretendRequest(email, pass, cb) {
     setTimeout(() => {
         if (email === 'joe@example.com' && pass === 'password1') {

@@ -7,7 +7,7 @@ var SideNavLinks = React.createClass({
         return (
         <ul className="site-menu">
             <li className="site-menu-item has-sub">
-                <a href="dashboard.html">
+                <a href="dashboard">
                     <span className="site-menu-title">Overview Dashboard</span>
                     <div className="site-menu-badge">
                         <span className="badge badge-success">3</span>
@@ -15,7 +15,7 @@ var SideNavLinks = React.createClass({
                 </a>
             </li>
             <li className="site-menu-item has-sub">
-                <a href="world.html">
+                <a href="world">
                     <span className="site-menu-title">Per World</span>
                     <span className="fa fa-angle-right site-menu-arrow"></span>
                 </a>

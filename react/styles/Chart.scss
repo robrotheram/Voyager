@@ -18,11 +18,45 @@
   stroke: #46be8a;
 }
 
+.leaflet-container {
+  height: 400px;
+  width: 100%;
+}
+
+.hoverinfo {
+  color:#5e5e5e;
+}
+
+.card-map{
+  width: 100%;
+  padding:0px;
+}
+.chart-inner{
+  width: 100%;
+  padding:8px;
+}
 .ct-series-a .ct-bar {
   background-color: white;
   fill: white;
   stroke: white;
 }
+
+.ct-grids line {
+  color: white;
+  stroke: white;
+  opacity: 0.1;
+}
+.ct-labels span {
+  color: white;
+}
+.ct-series-b .ct-bar, .ct-series-b .ct-line, .ct-series-b .ct-point, .ct-series-b .ct-slice-donut {
+  stroke: #f26f1b;
+}
+.ct-series-c .ct-bar, .ct-series-c .ct-line, .ct-series-c .ct-point, .ct-series-c .ct-slice-donut {
+  stroke: #46be8a;
+}
+
+
 
 .ct-series-b .ct-bar {
   stroke: rgba(232,234,246,.4);
