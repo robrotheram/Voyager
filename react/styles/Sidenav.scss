@@ -6,6 +6,8 @@
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
   overflow-x: hidden;
+  padding-bottom: 50px;
+
 }
 
 #wrapper.toggled {
@@ -31,7 +33,13 @@
 }
 
 .wrapper-content {
-  margin-top: 50px;
+  position: absolute;
+  top: 53px;
+  width: 100%;
+  bottom: 0px;
+  overflow: auto;
+  background: whitesmoke;
+
 }
 
 .site-sidebar {
@@ -381,6 +389,7 @@
 .site-menu-item>a {
   white-space: nowrap;
   cursor: pointer
+
 }
 
 .site-menu-icon {
@@ -437,7 +446,10 @@
 
 .site-menu-item {
   position: relative;
-  white-space: nowrap
+  white-space: nowrap;
+  list-style: none;
+
+
 }
 
 .site-menu-item a {
@@ -770,4 +782,8 @@
   .site-sidebar.slidePanel.slidePanel-left,.site-sidebar.slidePanel.slidePanel-right {
     width:100%
   }
+}
+
+.footer{
+  height: 50px;
 }

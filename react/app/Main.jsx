@@ -4,28 +4,13 @@ import { Router, Route, IndexRoute, Link, browserHistory, withRouter, hashHistor
 
 
 import auth from './auth.jsx'
-import Login from './Login.jsx'
-import Register from './Register.jsx'
-import Dashboard from "./Dashboard.jsx";
-import World from './World.jsx'
-
-var Home = React.createClass({
-    render: function() {
-        return (<h1>Welcome to the Home Page</h1>);
-    }
-});
-
-var Users = React.createClass({
-    render: function() {
-        return (<h1>Welcome to the Users Page</h1>);
-    }
-});
-
-var Widgets = React.createClass({
-    render: function() {
-        return (<h1>Welcome to the xczczxczxczxczxczxc Page</h1>);
-    }
-});
+import Login from './pages/Login.jsx'
+import Register from './pages/Register.jsx'
+import Dashboard from "./pages/Dashboard.jsx";
+import World from './pages/World.jsx'
+import Server from './pages/Server.jsx'
+import Users from './pages/User.jsx'
+import Index from './pages/index.jsx'
 
 var MainLayout = React.createClass({
 
@@ -104,9 +89,9 @@ const Main = React.createClass({
                     <Route path="register" component={Register} />
                     <Route path="dashboard" component={Dashboard} onEnter={requireAuth} />
                     <Route path="world" component={World} onEnter={requireAuth} />
-                    <IndexRoute component={Dashboard} onEnter={requireAuth}/>
+                    <IndexRoute component={Index}/>
                     <Route path="users" onEnter={requireAuth} component={Users} />
-                    <Route path="widgets" onEnter={requireAuth}  component={Widgets} />
+                    <Route path="server" onEnter={requireAuth} component={Server} />
                     <Route path='*' component={Login} />
                 </Route>
             </Router>

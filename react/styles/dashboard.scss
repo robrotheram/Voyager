@@ -1,9 +1,10 @@
 @import "../node_modules/leaflet/dist/leaflet.css";
+@import "typography";
 
 .container-fluid{
   padding-top: 20px!important;
   background-color: whitesmoke;
-  height: 100%;
+  height: auto;
   overflow: hidden;
 }
 .row {
@@ -62,3 +63,6 @@
   fill: #00BCD4;
   color: white;
 }
+
+
+

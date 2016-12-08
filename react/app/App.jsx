@@ -11,4 +11,4 @@ import Main from './Main.jsx'
 
 
 import boostrap from 'bootstrap'
-ReactDOM.render(<Main>  </Main>, document.getElementById('example'));
+ReactDOM.render(<Main>  </Main>, document.getElementById('app'));
