@@ -47,7 +47,12 @@
             padding-right: 100px;
 
         }
+        @media (max-width: 600px) {
+            .table td, .table th{
+                padding-right: 10px;
 
+            }
+        }
         .borderless td, .borderless th {
             border: none;
         }
@@ -58,46 +63,17 @@
 
 <body>
 <header>
+
     <!--Navbar-->
-    <nav class="navbar navbar-dark navbar-fixed-top scrolling-navbar primary-color">
-
-
-
-
-        <div class="container">
-
-            <!--Collapse content-->
-            <div class="collapse navbar-toggleable-xs" id="collapseEx2">
-                <!-- SideNav slide-out button -->
-                <div class="pull-left">
-                    <a href=".menu-toggle" data-activates="slide-out" class="button-collapse navbar-brand menu-toggle"><i class="fa fa-bars"></i></a>
-                </div>
-
-                <!-- Breadcrumb-->
-                <div class="navbar-brand">
-                    <a href=".menu-toggle" class="menu-toggle"><p style="color: white">MDB Admin</p></a>
-                </div>
-                <!--
-                <ul class="nav navbar-nav float-lg-right">
-                    <li class="nav-item active">
-                        <a class="nav-link">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link">Pricing</a>
-                    </li>
-
-                </ul>
-                <!--Search form-->
-
-            </div>
-            <!--/.Collapse content-->
-
+    <nav class="navbar navbar-fixed-top scrolling-navbar double-nav primary-color navbar-dark">
+        <div class="float-xs-left">
+            <a href=".menu-toggle" data-activates="slide-out" class=" navbar-brand button-collapse menu-toggle"><i class="fa fa-bars"></i></a>
         </div>
-
+        <div class=" navbar-brand breadcrumb-dn">
+            <p>MDAT</p>
+        </div>
     </nav>
+
 </header>
 
 <div id="wrapper">
@@ -165,7 +141,7 @@
         <div class="container-fluid" style="padding: 25px">
             <div class="row" style="margin-top: -35px; margin-left: -35px; margin-right: -35px;" >
                 <div class="widget-header cover overlay" style="box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);">
-                    <img class="cover-image" src="bg.png">
+                    <img class="cover-image" src="images/bg.png">
                     <div class="overlay-panel overlay-background vertical-align">
                         <div class="vertical-align-middle">
                             <a class="" href="javascript:void(0)">
@@ -191,26 +167,28 @@
                 <div class="col-md-12 personal-info">
                     <form class="form-horizontal" role="form">
                         <table class="table borderless">
+
                             <tr>
-                                <td>Profile Name:</td>
+                                <td style="width: 18%">Profile Name:</td>
                                 <td><input class="form-control" type="text" value="Jane"></td>
                             </tr>
                             <tr>
-                                <td>Group:</td>
+                                <td style="width: 18%">Group:</td>
                                 <td><input class="form-control" type="text" value=""></td>
                             </tr>
                             <tr>
-                                <td>Email:</td>
+                                <td style="width: 18%">Email:</td>
                                 <td><input class="form-control" type="text" value="janesemail@gmail.com"></td>
                             </tr>
                             <tr>
-                                <td>Password:</td>
+                                <td style="width: 18%">Password:</td>
                                 <td> <input class="form-control" type="password" value="11111122333"></td>
                             </tr>
                             <tr>
-                                <td>Confirm password:</td>
+                                <td style="width: 18%">Confirm password:</td>
                                 <td><input class="form-control" type="password" value="11111122333"></td>
                             </tr>
+
                         </table>
                         <div class="form-group">
                             <div class="col-md-12" style="    text-align: center;">

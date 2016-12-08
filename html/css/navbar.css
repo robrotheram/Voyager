@@ -162,6 +162,8 @@ body {
     content: "\f1e1"
 }
 
+
+
 .btn-floating {
     position: relative;
     overflow: hidden;
@@ -247,7 +249,7 @@ body {
 }
 
 .ct-series-b .ct-bar, .ct-series-b .ct-line, .ct-series-b .ct-point, .ct-series-b .ct-slice-donut {
-    stroke: #f2a654;
+    stroke: #f26f1b;
 }
 .ct-series-c .ct-bar, .ct-series-c .ct-line, .ct-series-c .ct-point, .ct-series-c .ct-slice-donut {
     stroke: #46be8a;
@@ -787,6 +789,13 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,.08)
 }
 
+.card .activator {
+    float: right;
+    padding: 1rem;
+    margin-right: 10px;
+    font-size: 1.2rem;
+    color: #000;
+}
 
 .card .form-header {
     color: #fff;
@@ -2625,9 +2634,28 @@ input[type=checkbox]:not(:disabled)~.lever:active:after {
 }
 
 .panel-search-form {
-    padding: 19px;
-    margin-left: 20px;
+    padding: 0px;
+    margin-left: 10px;
+    margin-top: 18px;
 }
+
+
+.table-responsive {
+    display: table !important;
+}
+
+@media (max-width: 480px) {
+    .panel-search-form {
+        padding: 0px;
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+    .table-responsive {
+        display: block !important;
+    }
+}
+
+
 .panel-search-form, .app-work .panel-title {
     float: left;
 }
@@ -2641,7 +2669,7 @@ input[type=checkbox]:not(:disabled)~.lever:active:after {
 .panel-info li {
     list-style: none;
     display: inline-block;
-    margin-right: 50px;
+    margin-right: 24px;
     text-align: center
 }
 
@@ -2898,8 +2926,15 @@ input[type=checkbox]:not(:disabled)~.lever:active:after {
 
 
 
+.custom-frm{
+    display: inline-block; margin-right: 0px!important;
+}
 
-
+@media (max-width: 480px) {
+    .custom-frm{
+        top: -5px;
+    }
+}
 
 
 
@@ -2910,7 +2945,7 @@ input[type=checkbox]:not(:disabled)~.lever:active:after {
     background-color: white !important;
     border-radius: 2px !important;
     color: black !important;
-    padding-left: 5px !important;
+    padding-left: 0px !important;
     text-align-last: center !important;
     border: 0px solid !important;
     font-size: 12px !important;

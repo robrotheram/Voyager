@@ -101,44 +101,13 @@
 
 <body>
 <header>
-    <!--Navbar-->
-    <nav class="navbar navbar-dark navbar-fixed-top scrolling-navbar primary-color">
-
-        <div class="container">
-
-            <!--Collapse content-->
-            <div class="collapse navbar-toggleable-xs" id="collapseEx2">
-                <!-- SideNav slide-out button -->
-                <div class="pull-left">
-                    <a href=".menu-toggle" data-activates="slide-out" class="button-collapse navbar-brand menu-toggle"><i class="fa fa-bars"></i></a>
-                </div>
-
-                <!-- Breadcrumb-->
-                <div class="navbar-brand">
-                    <a href=".menu-toggle" class="menu-toggle"><p style="color: white">MDB Admin</p></a>
-                </div>
-
-
-                <!--
-                <ul class="nav navbar-nav float-lg-right">
-                    <li class="nav-item active">
-                        <a class="nav-link">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link">Pricing</a>
-                    </li>
-
-                </ul>
-                <!--Search form-->
-
-            </div>
-            <!--/.Collapse content-->
-
+    <nav class="navbar navbar-fixed-top scrolling-navbar double-nav primary-color navbar-dark">
+        <div class="float-xs-left">
+            <a href=".menu-toggle" data-activates="slide-out" class=" navbar-brand button-collapse menu-toggle"><i class="fa fa-bars"></i></a>
         </div>
-
+        <div class=" navbar-brand breadcrumb-dn">
+            <p>MDAT</p>
+        </div>
     </nav>
 </header>
 
@@ -225,11 +194,11 @@
     left: 10px;"></i>
                                     <input type="text" class="form-control" id="inputSearch" name="search" placeholder="Search List" style="    border: 0;
     border-radius: 17px;
-    width: 280px;
+
     background-color: #f8fafb;
     margin: 0px;
     height: 32px;
-    padding: 0px 20px 0 30px;">
+    padding: 0px 0px 0 30px;">
                                     <i class="icon md-refresh"></i>
                                 </div>
                             </form>
@@ -249,7 +218,7 @@
                             </ul>
                         </div>
                         <div class="panel-body">
-                            <table class="table">
+                            <table class="table table-responsive">
                                 <thead>
                                 <tr>
                                     <th>Status</th>
@@ -265,7 +234,7 @@
                                         <span class="label label-success">Active</span>
                                     </td>
                                     <td>
-                                        <input type="text" class="form-control" id="inputRounded" disabled>
+                                        <input type="text" class="form-control" id="inputRounded">
                                     </td>
                                     <td>
                                         <input type="text" id="form1" class="form-control" disabled>
