@@ -18,10 +18,6 @@
   stroke: #46be8a;
 }
 
-.leaflet-container {
-  height: 400px;
-  width: 100%;
-}
 
 .hoverinfo {
   color:#5e5e5e;
@@ -44,8 +40,9 @@
 .ct-grids line {
   color: white;
   stroke: white;
-  opacity: 0.1;
+  opacity: 0.33;
 }
+
 .ct-labels span {
   color: white;
 }
@@ -75,10 +72,19 @@
   top: 50px
 }
 
+.header-chart > .ct-chart{
+  width: 100%;
+  height:250px;
+  position: relative;
+  top: 0px;
+  padding: 0px;
+  margin: 0px;
+}
+
 .ct-grids line {
   color: white;
   stroke: white;
-  opacity: 0.1;
+  opacity: 0.33;
 }
 .ct-labels span {
   color: white;

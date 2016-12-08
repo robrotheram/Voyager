@@ -10,8 +10,139 @@
 }
 .navbar-brand {
   float: left;
- padding: 0px;
+  padding: 0px;
   margin-right: 16px;
   font-size: 1.25rem;
   line-height: inherit;
 }
+.nav-item{
+  padding-bottom: 12px;
+}
+.world-controls{
+  margin-bottom:0px;
+  padding-bottom:0px;
+  z-index: 100;
+  background-color: #4B515D!important;
+
+}
+.dropdown-menu{
+  z-index: 2000; width: 100%
+}
+.time-form{
+  height: 50px; margin-top: -8px
+}
+.float-lg-right{
+  float:right;
+}
+.time-form > a{
+  display:inline-block;
+  top:10px;
+  padding: 0px !important;
+  margin: 0px 5px 0px 0px !important;
+}
+.time-form > input{
+  display:inline-block;
+  margin: 0 5px 1px 0px !important;
+}
+
+.dropdown-toggle::after {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: .3em;
+  vertical-align: middle;
+  content: "";
+  border-top: .3em solid;
+  border-right: .3em solid transparent;
+  border-left: .3em solid transparent
+}
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 3px 1.5rem;
+  clear: both;
+  font-weight: 400;
+  color: #373a3c;
+  text-align: inherit;
+  white-space: nowrap;
+  background: 0 0;
+  border: 0;
+}
+
+
+
+
+
+.custom-frm{
+  display: inline-block; margin-right: 0px!important;
+}
+
+@media (max-width: 480px) {
+  .custom-frm{
+    top: -5px;
+  }
+}
+
+
+
+
+
+.custom-time-input{
+  margin: -2px 5px 8px 0 !important;
+  background-color: white !important;
+  border-radius: 2px !important;
+  color: black !important;
+  padding-left: 0px !important;
+  text-align-last: center !important;
+  border: 0px solid !important;
+  font-size: 12px !important;
+  border-bottom: 0px !important;
+  box-shadow: none !important;
+}
+
+
+.btn-ins {
+  background-color: #3F729B
+}
+
+.btn-ins:focus,.btn-ins:hover {
+  background-color: #467fad
+}
+
+.fa-share-alt:before {
+  content: "\f1e0"
+}
+
+.fa-share-alt-square:before {
+  content: "\f1e1"
+}
+
+
+
+.btn-floating {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  width: 37px;
+  height: 37px;
+  padding: 0;
+  background-color: #a6c;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  transition: .3s;
+  margin: 10px
+}
+
+.btn-flat,.btn-flat:focus {
+  background-color: transparent
+}
+
+.btn-floating i {
+  width: inherit;
+  text-align: center;
+  font-size: 1.6rem
+}
+

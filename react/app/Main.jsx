@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, IndexRoute, Link, browserHistory, withRouter } from 'react-router'
+import { Router, Route, IndexRoute, Link, browserHistory, withRouter, hashHistory } from 'react-router'
 
 
 
@@ -8,6 +8,7 @@ import Login from './Login.jsx'
 import Register from './Register.jsx'
 import Dashboard from "./Dashboard.jsx";
 import World from './World.jsx'
+
 var Home = React.createClass({
     render: function() {
         return (<h1>Welcome to the Home Page</h1>);
@@ -95,7 +96,7 @@ function requireAuth(nextState, replace) {
 const Main = React.createClass({
     render(){
         return(
-            <Router history={browserHistory}>
+            <Router history={hashHistory}>
                 <Route path="/" component={MainLayout}>
                     <Route path="login" component={Login} />
                     <Route path="logout" component={Logout} />

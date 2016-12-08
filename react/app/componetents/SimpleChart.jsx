@@ -36,6 +36,7 @@ class SimpleChart extends React.Component {
                     x: 0,
                     y: 15
                 }
+                
             }
         }
 
