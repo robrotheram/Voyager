@@ -27,4 +27,4 @@ var TimelineEvent = React.createClass({
     }
 });
 
-export default TimelineEvent
+export default TimelineEvent;

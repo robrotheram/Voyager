@@ -34,4 +34,4 @@ var SideNavLinks = React.createClass({
     }
 });
 
-export default SideNavLinks
+export default SideNavLinks;

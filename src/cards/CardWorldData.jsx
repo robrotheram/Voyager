@@ -1,5 +1,5 @@
 import React from 'react';
-import ChartistGraph from 'react-chartist'
+import ChartistGraph from 'react-chartist';
 
 var CardWorldData = React.createClass({
     render: function() {
@@ -13,9 +13,9 @@ var CardWorldData = React.createClass({
                         {x: "wqeqwe" , y: 33},
                         {x: "qweqwe" , y: 23},
                         {x: "moasdnd" , y: 56},
-                        {x: "sadasd"  , y: 13}
+                        {x: "sadasd" , y: 13}
                     ]
-                },
+                }
 
             ]
         };
@@ -27,7 +27,7 @@ var CardWorldData = React.createClass({
             axisX: {
                 showLabel: !0,
                 showGrid: !0,
-                offset: 40,
+                offset: 40
             },
             axisY: {
                 showLabel: !0,
@@ -84,4 +84,4 @@ var CardWorldData = React.createClass({
         );
     }
 });
-export default CardWorldData
+export default CardWorldData;

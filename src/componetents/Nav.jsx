@@ -15,7 +15,7 @@ var Nav = React.createClass({
             <header>
                 <nav className="navbar navbar-fixed-top scrolling-navbar double-nav primary-color navbar-dark">
                     <div className="float-xs-left">
-                        <a onClick={this.onTextChanged}  className=" navbar-brand button-collapse menu-toggle"><i className="fa fa-bars"></i></a>
+                        <a onClick={this.onTextChanged} className=" navbar-brand button-collapse menu-toggle"><i className="fa fa-bars"></i></a>
                     </div>
                     <div onClick={this.onTextChanged} className=" navbar-brand breadcrumb-dn">
                         <p>MDAT</p>{this.props.text}
@@ -25,5 +25,4 @@ var Nav = React.createClass({
         );
     }
 });
-
-export default Nav
+export default Nav;

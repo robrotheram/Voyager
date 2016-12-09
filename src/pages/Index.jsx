@@ -8,7 +8,7 @@ const Index = React.createClass({
         this.setState({ checked: newState });
     },
     render(){
-        return(
+        return (
             <div>
                 <header id="top">
                     <div className="header-content">
@@ -24,7 +24,7 @@ const Index = React.createClass({
                 </header>
 
             </div>
-        )
+        );
     }
 });
 

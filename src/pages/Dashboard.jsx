@@ -1,11 +1,10 @@
 import React from 'react';
-import { Router, Route, IndexRoute, Link, browserHistory, withRouter } from 'react-router'
-import Nav from '../componetents/Nav'
-import SideNav from '../componetents/SideNav'
-import CardTitles from '../cards/CardTitles'
-import SimpleChart from '../componetents/SimpleChart'
-import CardD3Map from '../cards/CardD3Map'
-import CardStats from '../cards/CardStats'
+import Nav from '../componetents/Nav';
+import SideNav from '../componetents/SideNav';
+import CardTitles from '../cards/CardTitles';
+import SimpleChart from '../componetents/SimpleChart';
+import CardD3Map from '../cards/CardD3Map';
+import CardStats from '../cards/CardStats';
 
 const Dashboard = React.createClass({
     getInitialState: function () {
@@ -15,10 +14,10 @@ const Dashboard = React.createClass({
         this.setState({ checked: newState });
     },
     render(){
-        return(
+        return (
             <div>
 
-                <Nav initialChecked={this.state.checked} callbackParent={this.onChildChanged}  />
+                <Nav initialChecked={this.state.checked} callbackParent={this.onChildChanged} />
                 <div id="wrapper" className={this.state.checked ? 'toggled' : ''}>
                     <SideNav/>
                     <div id="page-content-wrapper" className="wrapper-content">
@@ -50,7 +49,7 @@ const Dashboard = React.createClass({
                         </div>
                         <div className="row">
                             <div className="col-lg-7">
-                                <CardD3Map  color="river" />
+                                <CardD3Map color="river"/>
                             </div>
                             <div className="col-lg-5">
                                 <CardStats/>
@@ -60,8 +59,7 @@ const Dashboard = React.createClass({
                    </div>
                </div>
            </div>
-        )
+        );
     }
 });
-
 export default Dashboard;

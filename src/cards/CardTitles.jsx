@@ -5,8 +5,8 @@ var CardTitles = React.createClass({
         return (
             <div className={"card "+this.props.color}>
                 <div className="card-block">
-                    <a className="avatar-100 pull-left margin-right-20 " href="javascript:void(0)">
-                        <img src={"src/images/mc/"+this.props.img+".png"}  alt="" width="75px"  className="avartar-img invert"/>
+                    <a className="avatar-100 pull-left margin-right-20 ">
+                        <img src={"src/images/mc/"+this.props.img+".png"} alt="" width="75px" className="avartar-img invert"/>
                     </a>
                     <div className="vertical-align text-right height-100 text-truncate">
                         <div className="vertical-align-middle">
@@ -22,5 +22,4 @@ var CardTitles = React.createClass({
         );
     }
 });
-
-export default CardTitles
+export default CardTitles;

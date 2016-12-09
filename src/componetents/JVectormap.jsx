@@ -1,7 +1,7 @@
 import React from 'react';
 import d3 from 'd3';
 import ReactDOM from 'react-dom';
-import Datamap from 'datamaps/dist/datamaps.world.min'
+import Datamap from 'datamaps/dist/datamaps.world.min';
 
 var JVectorMap = React.createClass({
     renderMap(){
@@ -14,22 +14,22 @@ var JVectorMap = React.createClass({
                 borderWidth: 0.5,
                 highlightFillColor: '#FFCC80',
                 popupTemplate: function(geography, data) {
-                    if (data && data.value) {
-                        return '<div class="hoverinfo"><strong>' + geography.properties.name + ', ' + data.value + '</strong></div>';
-                    } else {
-                        return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong></div>';
-                    }
+                    if (data && data.value)
+                        return ('<div class="hoverinfo"><strong>' + geography.properties.name + ', ' + data.value + '</strong></div>');
+                    else
+                        return ('<div class="hoverinfo"><strong>' + geography.properties.name + '</strong></div>');
+
                 }
             }
         });
     },
-    redducedData(){
+    /*redducedData(){
         const newData = this.props.regionData.reduce((object, data) => {
             object[data.code] = { value: data.value, fillColor: this.linearPalleteScale(data.value) };
             return object;
         }, {});
         return objectAssign({}, statesDefaults, newData);
-    },
+    },*/
     currentScreenWidth(){
         return window.innerWidth ||
             document.documentElement.clientWidth ||
@@ -38,9 +38,7 @@ var JVectorMap = React.createClass({
     componentDidMount: function() {
         const mapContainer = d3.select('#datamap-container');
         const initialScreenWidth = this.currentScreenWidth();
-        const containerWidth = (initialScreenWidth < 600) ?
-        { width: initialScreenWidth + 'px',  height: (initialScreenWidth * 0.5625) + 'px' } :
-        { width: '100%', height: '550px' }
+        const containerWidth = (initialScreenWidth < 600) ? { width: initialScreenWidth + 'px', height: (initialScreenWidth * 0.5625) + 'px' } : { width: '100%', height: '550px' };
         mapContainer.style(containerWidth);
         this.datamap = this.renderMap();
         window.addEventListener('resize', () => {
@@ -78,4 +76,4 @@ var JVectorMap = React.createClass({
     }
 });
 
-export default JVectorMap
+export default JVectorMap;

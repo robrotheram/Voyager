@@ -1,5 +1,5 @@
 import React from 'react';
-import ChartistGraph from 'react-chartist'
+import ChartistGraph from 'react-chartist';
 
 class SimpleChart extends React.Component {
     render() {
@@ -10,7 +10,7 @@ class SimpleChart extends React.Component {
                 [160, 390, 280, 440, 410, 360, 200],
                 [440, 210, 320, 160, 190, 240, 400]
             ]
-        }
+        };
 
         var baroptions = {
             stackBars: !0,
@@ -32,9 +32,9 @@ class SimpleChart extends React.Component {
                 }
                 
             }
-        }
+        };
 
-        var type = 'Bar'
+        var type = 'Bar';
 
         return (
             <div className={"card card-chart "+this.props.color}>
@@ -46,5 +46,4 @@ class SimpleChart extends React.Component {
         );
     }
 }
-
-export default SimpleChart
+export default SimpleChart;

@@ -1,6 +1,6 @@
 import React from 'react';
-import moment from 'moment'
-import ChartistGraph from 'react-chartist'
+import moment from 'moment';
+import ChartistGraph from 'react-chartist';
 
 var CardStats = React.createClass({
     render: function() {
@@ -103,5 +103,4 @@ var CardStats = React.createClass({
         );
     }
 });
-
-export default CardStats
+export default CardStats;

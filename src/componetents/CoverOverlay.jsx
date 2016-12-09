@@ -6,7 +6,7 @@ var CoverOverlay = React.createClass({
                 <img className="cover-image" src="http://getbootstrapadmin.com/remark/material/center/assets/examples/images/dashboard-header.jpg" alt="..."/>
                 <div className="overlay-panel vertical-align overlay-background">
                     <div className="vertical-align-middle">
-                        <a className="avatar avatar-lg" href="javascript:void(0)">
+                        <a className="avatar avatar-lg">
                             <img width="120px" src="src/images/mc/Minecraft Main Character.png" alt="" />
                         </a>
                         <div className="site-menubar-info">
@@ -20,4 +20,4 @@ var CoverOverlay = React.createClass({
     }
 });
 
-export default CoverOverlay
+export default CoverOverlay;

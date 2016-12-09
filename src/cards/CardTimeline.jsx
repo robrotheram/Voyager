@@ -11,4 +11,4 @@ var CardTimeline = React.createClass({
     }
 });
 
-export default CardTimeline
+export default CardTimeline;

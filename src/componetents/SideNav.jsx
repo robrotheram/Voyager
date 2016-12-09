@@ -1,6 +1,6 @@
 import React from 'react';
-import CoverOverlay from './CoverOverlay'
-import SideNavLinks from './SideNavLinks'
+import CoverOverlay from './CoverOverlay';
+import SideNavLinks from './SideNavLinks';
 
 
 var SideNav = React.createClass({
@@ -21,5 +21,4 @@ var SideNav = React.createClass({
         );
     }
 });
-
-export default SideNav
+export default SideNav;

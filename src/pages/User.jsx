@@ -1,6 +1,6 @@
 import React from 'react';
-import Nav from '../componetents/Nav'
-import SideNav from '../componetents/SideNav'
+import Nav from '../componetents/Nav';
+import SideNav from '../componetents/SideNav';
 
 
 const User = React.createClass({
@@ -11,9 +11,9 @@ const User = React.createClass({
         this.setState({ checked: newState });
     },
     render(){
-        return(
+        return (
             <div>
-                <Nav initialChecked={this.state.checked} callbackParent={this.onChildChanged}  />
+                <Nav initialChecked={this.state.checked} callbackParent={this.onChildChanged} />
                 <div id="wrapper" className={this.state.checked ? 'toggled' : ''}>
                     <SideNav/>
                     <div id="page-content-wrapper" className="wrapper-content">
@@ -21,8 +21,8 @@ const User = React.createClass({
                             <img className="cover-image" src="src/images/bg.png"/>
                             <div className="overlay-panel overlay-background vertical-align">
                                 <div className="vertical-align-middle">
-                                    <a className="" href="javascript:void(0)">
-                                        <img  className="widget-avatar" width="80px" height="80px" src="src/images/mc/Minecraft Skeleton.png" alt="" />
+                                    <a className="">
+                                        <img className="widget-avatar" width="80px" height="80px" src="src/images/mc/Minecraft Skeleton.png" alt="" />
                                     </a>
                                     <div className="font-size-20 margin-top-10">MACHI</div>
                                     <div className="font-size-14">machidesign@163.com</div>
@@ -78,7 +78,7 @@ const User = React.createClass({
                     </div>
                </div>
            </div>
-        )
+        );
     }
 });
 

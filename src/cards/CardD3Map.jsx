@@ -1,5 +1,5 @@
 import React from 'react';
-import JVectorMap from '../componetents/JVectormap'
+import JVectorMap from '../componetents/JVectormap';
 
 var CardD3Map = React.createClass({
     render: function() {
@@ -12,4 +12,4 @@ var CardD3Map = React.createClass({
         );
     }
 });
-export default CardD3Map
+export default CardD3Map;

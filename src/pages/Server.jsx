@@ -1,6 +1,6 @@
 import React from 'react';
-import Nav from '../componetents/Nav'
-import SideNav from '../componetents/SideNav'
+import Nav from '../componetents/Nav';
+import SideNav from '../componetents/SideNav';
 
 const Server = React.createClass({
     getInitialState: function () {
@@ -10,9 +10,9 @@ const Server = React.createClass({
         this.setState({ checked: newState });
     },
     render(){
-        return(
+        return (
             <div>
-                <Nav initialChecked={this.state.checked} callbackParent={this.onChildChanged}  />
+                <Nav initialChecked={this.state.checked} callbackParent={this.onChildChanged} />
                 <div id="wrapper" className={this.state.checked ? 'toggled' : ''}>
                     <SideNav/>
                     <div id="page-content-wrapper" className="wrapper-content">
@@ -80,18 +80,13 @@ const Server = React.createClass({
                                             </table>
                                         </div>
                                     </div>
-
-
-
-
                                 </div>
                             </div>
-
                         </div>
                    </div>
                </div>
            </div>
-        )
+        );
     }
 });
 

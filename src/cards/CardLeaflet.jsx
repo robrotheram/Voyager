@@ -10,5 +10,4 @@ var CardLeaflet = React.createClass({
         );
     }
 });
-
-export default CardLeaflet
+export default CardLeaflet;

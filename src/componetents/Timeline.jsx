@@ -14,5 +14,4 @@ var Timeline = React.createClass({
         );
     }
 });
-
-export default Timeline
+export default Timeline;

@@ -1,13 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-
 var LeafletMap = React.createClass({
     componentDidMount: function() {
-        let element = ReactDOM.findDOMNode(this)
-
+        let element = ReactDOM.findDOMNode(this);
         setTimeout(() => {
-            this.map = new L.map(element,  {
+            this.map = new L.map(element, {
                 crs: L.CRS.Simple,
                 zoom: 9,
                 maxZoom: 9,
@@ -17,7 +14,7 @@ var LeafletMap = React.createClass({
             L.GridLayer.DebugCoords = L.GridLayer.extend({
                 createTile: function (coords, done) {
                     var tile = document.createElement('div');
-                    tile.innerHTML = [coords.z, coords.x, coords.y, ].join(', ');
+                    tile.innerHTML = [ coords.z, coords.x, coords.y ].join(', ');
                     tile.style.outline = '1px solid red';
                     tile.style.color = 'red';
                     setTimeout(function () {
@@ -35,8 +32,7 @@ var LeafletMap = React.createClass({
             };
             this.map.addLayer( L.gridLayer.debugCoords() );
             this.map.setView(this.map.unproject([8*256, -11*256]), 9);
-
-        })
+        });
     },
     componentWillUnmount: function() {
         this.map.off('click', this.onMapClick);
@@ -52,4 +48,4 @@ var LeafletMap = React.createClass({
     }
 });
 
-export default LeafletMap
+export default LeafletMap;

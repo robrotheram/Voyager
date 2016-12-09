@@ -1,9 +1,9 @@
 import React from 'react';
-import Nav from '../componetents/Nav'
-import SideNav from '../componetents/SideNav'
-import CardWorldData from '../cards/CardWorldData'
-import CardLeaflet from '../cards/CardLeaflet'
-import CardTimeline from '../cards/CardTimeline'
+import Nav from '../componetents/Nav';
+import SideNav from '../componetents/SideNav';
+import CardWorldData from '../cards/CardWorldData';
+import CardLeaflet from '../cards/CardLeaflet';
+import CardTimeline from '../cards/CardTimeline';
 
 
 
@@ -15,9 +15,9 @@ const World = React.createClass({
         this.setState({ checked: newState });
     },
     render(){
-        return(
+        return (
             <div>
-                <Nav initialChecked={this.state.checked} callbackParent={this.onChildChanged}  />
+                <Nav initialChecked={this.state.checked} callbackParent={this.onChildChanged} />
                 <div id="wrapper" className={this.state.checked ? 'toggled' : ''}>
                     <SideNav/>
                     <div id="page-content-wrapper" className="wrapper-content">
@@ -72,7 +72,7 @@ const World = React.createClass({
                    </div>
                </div>
            </div>
-        )
+        );
     }
 });
 
