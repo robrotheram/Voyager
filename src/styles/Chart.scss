@@ -1,0 +1,91 @@
+.ct-series-b .ct-area, .ct-series-b .ct-slice-pie {
+  fill: #f96868;
+  stroke: #f96868;
+}
+.ct-series-b .ct-area, .ct-series-b .ct-slice-pie {
+  fill: #f2a654 !important;
+  stroke: #f2a654 !important;
+}
+.ct-series-c .ct-area, .ct-series-c .ct-slice-pie {
+  fill: #46be8a;
+  stroke: #46be8a;
+}
+
+.ct-series-b .ct-bar, .ct-series-b .ct-line, .ct-series-b .ct-point, .ct-series-b .ct-slice-donut {
+  stroke: #f2a654;
+}
+.ct-series-c .ct-bar, .ct-series-c .ct-line, .ct-series-c .ct-point, .ct-series-c .ct-slice-donut {
+  stroke: #46be8a;
+}
+
+
+.hoverinfo {
+  color:#5e5e5e;
+}
+
+.card-map{
+  width: 100%;
+  padding:0px;
+}
+.chart-inner{
+  width: 100%;
+  padding:8px;
+}
+.ct-series-a .ct-bar {
+  background-color: white;
+  fill: white;
+  stroke: white;
+}
+
+.ct-grids line {
+  color: white;
+  stroke: white;
+  opacity: 0.33;
+}
+
+.ct-labels span {
+  color: white;
+}
+.ct-series-b .ct-bar, .ct-series-b .ct-line, .ct-series-b .ct-point, .ct-series-b .ct-slice-donut {
+  stroke: #f26f1b;
+}
+.ct-series-c .ct-bar, .ct-series-c .ct-line, .ct-series-c .ct-point, .ct-series-c .ct-slice-donut {
+  stroke: #46be8a;
+}
+
+
+
+.ct-series-b .ct-bar {
+  stroke: rgba(232,234,246,.4);
+  stroke-width: 3%;
+}
+
+.card-chart {
+  height:300px;
+  padding: 20px
+}
+
+.ct-chart{
+  width: 100%;
+  height:250px;
+  position: absolute;
+  top: 50px
+}
+
+.header-chart > .ct-chart{
+  width: 100%;
+  height:250px;
+  position: relative;
+  top: 0px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.ct-grids line {
+  color: white;
+  stroke: white;
+  opacity: 0.33;
+}
+.ct-labels span {
+  color: white;
+}
