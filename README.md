@@ -1,6 +1,8 @@
-# voyager
+# Voyager 
 
-> Visuliation Section of the Mincraft Section
+> The MDAT Visualisation and Dashboard UI 
+
+A react Single Page Webapp, Server yet to be decided
 
 ## Build Setup
 
@@ -9,16 +11,13 @@
 npm install
 
 # serve with hot reload at localhost:8080
-npm run dev
+npm start
 
 # build for production with minification
 npm run build
-
-# lint all *.js and *.vue files
-npm run lint
-
-# run unit tests
-npm test
 ```
 
-For more information see the [docs for vueify](https://github.com/vuejs/vueify).
+## Other Info
+
+The html folder is a archive of html layouts before work was done to convert them into a react SPWA
+
