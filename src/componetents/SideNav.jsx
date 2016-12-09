@@ -1,8 +1,6 @@
 import React from 'react';
 import CoverOverlay from './CoverOverlay';
 import SideNavLinks from './SideNavLinks';
-
-
 var SideNav = React.createClass({
     render: function() {
         return (

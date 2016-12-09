@@ -39,15 +39,25 @@ module.exports = {
                 test: /\.scss$/,
                 loader: ExtractTextPlugin.extract('css!sass')
             },
-            {test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader'},
-            {test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader'},
-            {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader' },
-            {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader' },
-            {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader' },
             {
-                test: /\.(jpe?g|png|gif|svg)$/,
-                loader: 'url-loader'
+                test: /\.(ttf|eot|svg|woff(2)?)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                loader: 'file-loader',
+                loader: 'path-file-loader',
+                query:{
+                    name: '[name].[ext]',
+                    publicPath: './dist/fonts/',
+                    cssPath: '../fonts/'
+                }
+            },
+            { test: /\.(jpe?g|png|gif|svg)?$/,
+                loader: 'path-file-loader',
+                query:{
+                    name: '[name].[hash].[ext]',
+                    publicPath: './dist/images/',
+                    cssPath: '../images/'
+                }
             }
+
         ]
     },
     resolve: {

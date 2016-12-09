@@ -1,4 +1,5 @@
 import React from 'react';
+import mc_img from '../images/mc/Minecraft Skeleton.png';
 var CoverOverlay = React.createClass({
     render: function() {
         return (
@@ -7,7 +8,7 @@ var CoverOverlay = React.createClass({
                 <div className="overlay-panel vertical-align overlay-background">
                     <div className="vertical-align-middle">
                         <a className="avatar avatar-lg">
-                            <img width="120px" src="src/images/mc/Minecraft Main Character.png" alt="" />
+                            <img width="120px" src={"./dist/styles/"+mc_img} alt="" />
                         </a>
                         <div className="site-menubar-info">
                             <h5 className="site-menubar-user">Machi</h5>

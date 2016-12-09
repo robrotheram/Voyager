@@ -32,7 +32,7 @@ var LeafletMap = React.createClass({
             };
             this.map.addLayer( L.gridLayer.debugCoords() );
             this.map.setView(this.map.unproject([8*256, -11*256]), 9);
-        });
+        },500);
     },
     componentWillUnmount: function() {
         this.map.off('click', this.onMapClick);

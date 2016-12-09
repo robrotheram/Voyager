@@ -2,6 +2,8 @@ import React from 'react';
 import Nav from '../componetents/Nav';
 import SideNav from '../componetents/SideNav';
 
+import mc_img from '../images/mc/Minecraft Skeleton.png';
+import bg from '../images/bg.png';
 
 const User = React.createClass({
     getInitialState: function () {
@@ -18,11 +20,11 @@ const User = React.createClass({
                     <SideNav/>
                     <div id="page-content-wrapper" className="wrapper-content">
                         <div className="widget-header cover overlay" >
-                            <img className="cover-image" src="src/images/bg.png"/>
+                            <img className="cover-image" src={"./dist/styles/"+bg} />
                             <div className="overlay-panel overlay-background vertical-align">
                                 <div className="vertical-align-middle">
                                     <a className="">
-                                        <img className="widget-avatar" width="80px" height="80px" src="src/images/mc/Minecraft Skeleton.png" alt="" />
+                                        <img className="widget-avatar" width="80px" height="80px" src={"./dist/styles/"+mc_img} alt="" />
                                     </a>
                                     <div className="font-size-20 margin-top-10">MACHI</div>
                                     <div className="font-size-14">machidesign@163.com</div>
