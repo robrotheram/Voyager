@@ -30,9 +30,9 @@ const Register = withRouter(
         },
         render() {
             return (
-                <div className="jumbotron">
+                <div className="jumbotron box-shadow">
                     <div className="container">
-                        <img src="images/logo.png" width="170px"/>
+                        <img src="src/images/logo.png" width="170px"/>
                         <h2>MDAT Login</h2>
                         {this.state.error && (
                             <span className="label label-danger">Bad login information</span>
