@@ -1,19 +1,23 @@
 import React from 'react';
+import { connect } from 'react-redux'
 
-var CardTitles = React.createClass({
-    render: function() {
+class CardTitles extends React.Component{
+    
+    render () {
+        console.log(this.props);
+
         return (
-            <div className={"card "+this.props.color}>
+            <div className={"card river "+this.props.color}>
                 <div className="card-block">
                     <a className="avatar-100 pull-left margin-right-20 ">
                         <img src={"src/images/mc/"+this.props.img+".png"} alt="" width="75px" className="avartar-img invert"/>
                     </a>
                     <div className="vertical-align text-right height-100 text-truncate">
                         <div className="vertical-align-middle">
-                            
+
                             <div className="font-size-18 margin-bottom-5 blue-600 text-truncate">{this.props.title}</div>
                             <div className="font-size-30 text-truncate">
-                                {this.props.value}
+                                {this.props.counter}
                             </div>
                         </div>
                     </div>
@@ -21,5 +25,12 @@ var CardTitles = React.createClass({
             </div>
         );
     }
-});
-export default CardTitles;
+}
+
+const mapStateToProps = store => {
+    return {
+        counter: store.todos.length
+    }
+};
+
+export default connect(mapStateToProps)(CardTitles);

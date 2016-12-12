@@ -1,6 +1,6 @@
 import React from 'react';
-import Nav from '../componetents/Nav';
-import SideNav from '../componetents/SideNav';
+import Nav from '../components/Nav';
+import SideNav from '../components/SideNav';
 
 const Server = React.createClass({
     getInitialState: function () {

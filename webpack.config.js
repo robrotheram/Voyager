@@ -5,7 +5,7 @@ var config = require('config'),
 
 module.exports = {
     entry: {
-        main: './src/App.jsx',
+        main: './src/index.jsx',
         vendor: [
             'history',
             'react',
@@ -24,6 +24,10 @@ module.exports = {
     },
 
     devtool: 'source-map',
+    devServer: {
+        host: '0.0.0.0',
+        port: 3000
+    },
     module: {
         loaders: [
             {
@@ -34,7 +38,7 @@ module.exports = {
                     presets: ['react', 'es2015']
                 }
             },
-            { test: /\.jsx?$/, loader: 'eslint', exclude: /node_modules/ },
+            //{ test: /\.jsx?$/, loader: 'eslint', exclude: /node_modules/ },
             {
                 test: /\.scss$/,
                 loader: ExtractTextPlugin.extract('css!sass')
@@ -71,6 +75,7 @@ module.exports = {
         failOnError: true
     },
     plugins: [
+        new webpack.HotModuleReplacementPlugin(),
         new ExtractTextPlugin('dist/styles/main.css', {
             allChunks: true
         }),

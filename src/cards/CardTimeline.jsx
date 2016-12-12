@@ -1,5 +1,5 @@
 import React from 'react';
-import Timeline from '../componetents/Timeline';
+import Timeline from '../components/Timeline';
 
 var CardTimeline = React.createClass({
     render: function() {

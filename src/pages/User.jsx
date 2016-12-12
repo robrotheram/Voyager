@@ -1,6 +1,6 @@
 import React from 'react';
-import Nav from '../componetents/Nav';
-import SideNav from '../componetents/SideNav';
+import Nav from '../components/Nav';
+import SideNav from '../components/SideNav';
 
 import mc_img from '../images/mc/Minecraft Skeleton.png';
 import bg from '../images/bg.png';

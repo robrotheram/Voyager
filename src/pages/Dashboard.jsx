@@ -1,8 +1,8 @@
 import React from 'react';
-import Nav from '../componetents/Nav';
-import SideNav from '../componetents/SideNav';
+import Nav from '../components/Nav';
+import SideNav from '../components/SideNav';
 import CardTitles from '../cards/CardTitles';
-import SimpleChart from '../componetents/SimpleChart';
+import SimpleChart from '../components/SimpleChart';
 import CardD3Map from '../cards/CardD3Map';
 import CardStats from '../cards/CardStats';
 

@@ -10,9 +10,7 @@ import Users from './pages/User';
 import Index from './pages/Index';
 
 var MainLayout = React.createClass({
-
     getInitialState: function () {
-
         return {
             loggedIn: auth.loggedIn()
         };
