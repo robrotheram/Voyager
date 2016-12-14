@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import store from './store';
 import Main from './Main';
 import { addTodo } from './actions'
-
+import './styles/Main.scss'
 render(
     <Provider store={store}>
         <Main/>
@@ -13,6 +13,9 @@ render(
 );
 
 setInterval(function() {
-    store.dispatch(addTodo("hello"));
+    //store.dispatch(addTodo("hello"));
 }, 200);
 
+store.subscribe(()=>{
+    localStorage.setItem('reduxState', JSON.stringify(store.getState()))
+})

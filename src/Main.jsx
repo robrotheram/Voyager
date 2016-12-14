@@ -1,6 +1,5 @@
 import React from 'react';
 import {Router, Route, IndexRoute, Link, hashHistory, withRouter} from 'react-router';
-import auth from './auth';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from "./pages/Dashboard";
@@ -8,65 +7,33 @@ import World from './pages/World';
 import Server from './pages/Server';
 import Users from './pages/User';
 import Index from './pages/Index';
-
+import store from './store';
 var MainLayout = React.createClass({
-    getInitialState: function () {
-        return {
-            loggedIn: auth.loggedIn()
-        };
-    },
-
-    updateAuth: function (loggedIn) {
-        this.setState({
-            loggedIn
-        });
-    },
-
-    componentWillMount: function() {
-        auth.onChange = this.updateAuth;
-        auth.login();
-    },
     render: function() {
-        var navlinks = null;
-        if (this.state.loggedIn) {
-            navlinks = (
-                <ul>
-                    <li><Link to="/logout">Log out</Link></li>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/users">Users</Link></li>
-                    <li><Link to="/widgets">Widgets</Link></li>
-                </ul>
-            );
-        }else{
-            navlinks = (
-                <ul>
-                    <li><Link to="/login">Sign in</Link></li>
-                </ul>
-            );
-        }
-
         return (
             <div className="app">
-                <main>
-                    {this.props.children || <p>You are {!this.state.loggedIn && 'not'} logged in.</p>}
-                </main>
+                    {this.props.children}
             </div>
         );
     }
 });
 
-const Logout = React.createClass({
-    componentDidMount() {
-        auth.logout();
-    },
+const Logout = withRouter(
+    React.createClass({
+        componentDidMount() {
+            store.dispatch({type:"LOG_OUT"});
+            this.props.router.push('');
+        },
 
-    render() {
-        return (<p>You are now logged out</p>);
-    }
-});
+        render() {
+            return (<p>You are now logged out</p>);
+        }
+    })
+);
 
 function requireAuth(nextState, replace) {
-    if (!auth.loggedIn()) {
+    var state = store.getState().auth;
+    if (!state.isAuth) {
         replace({
             pathname: '/login',
             state: { nextPathname: nextState.location.pathname }

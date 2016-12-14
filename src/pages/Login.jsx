@@ -1,6 +1,6 @@
 import React from 'react';
 import { Router, Route, IndexRoute, Link, browserHistory, withRouter } from 'react-router';
-import auth from '../auth';
+import store from '../store';
 
 const Login = withRouter(
     React.createClass({
@@ -10,22 +10,24 @@ const Login = withRouter(
             };
         },
         handleSubmit(event) {
+            var auth = store.getState().auth;
+
             event.preventDefault();
 
             const email = this.refs.email.value;
             const pass = this.refs.pass.value;
 
-            auth.login(email, pass, (loggedIn) => {
-                if (!loggedIn)
-                    return this.setState({ error: true });
-
+            if(email=="joe@example.com" && pass =="password1"){
+                store.dispatch({type:"LOG_IN"});
                 const { location } = this.props;
 
                 if (location.state && location.state.nextPathname)
                     this.props.router.replace(location.state.nextPathname);
                 else
                     this.props.router.replace('#/dashboard');
-            });
+            }else{
+                return this.setState({ error: true });
+            }
         },
         render() {
             return (
@@ -36,6 +38,13 @@ const Login = withRouter(
                         {this.state.error && (
                             <span className="label label-danger">Bad login check username and password</span>
                         )}
+                    </div>
+
+                    <div className="sk-folding-cube">
+                        <div className="sk-cube1 sk-cube"></div>
+                        <div className="sk-cube2 sk-cube"></div>
+                        <div className="sk-cube4 sk-cube"></div>
+                        <div className="sk-cube3 sk-cube"></div>
                     </div>
                     <div className="box">
                         <form className="login-form" onSubmit={this.handleSubmit}>
