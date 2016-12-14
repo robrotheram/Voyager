@@ -39,13 +39,14 @@ const Login = withRouter(
                             <span className="label label-danger">Bad login check username and password</span>
                         )}
                     </div>
-
-                    <div className="sk-folding-cube">
-                        <div className="sk-cube1 sk-cube"></div>
-                        <div className="sk-cube2 sk-cube"></div>
-                        <div className="sk-cube4 sk-cube"></div>
-                        <div className="sk-cube3 sk-cube"></div>
-                    </div>
+                    {this.state.loading && (
+                        <div className="sk-folding-cube">
+                            <div className="sk-cube1 sk-cube"></div>
+                            <div className="sk-cube2 sk-cube"></div>
+                            <div className="sk-cube4 sk-cube"></div>
+                            <div className="sk-cube3 sk-cube"></div>
+                        </div>
+                    )}
                     <div className="box">
                         <form className="login-form" onSubmit={this.handleSubmit}>
                             <input type="email" ref="email" placeholder="email" defaultValue="joe@example.com"/>

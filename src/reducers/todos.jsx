@@ -1,34 +1,30 @@
-const todo = (state = {}, action) => {
-    switch (action.type) {
-        case 'ADD_TODO':
-            return {
-                id: action.id,
-                text: action.text,
-                completed: false
-            };
-        case 'TOGGLE_TODO':
-            if (state.id !== action.id) {
-                return state
-            }
-            return { ...state, completed: !state.completed };
-        default:
-            return state
-    }
-};
-const todos = (state = [], action) => {
-    switch (action.type) {
-        case 'ADD_TODO':
-            return [
-                ...state,
-                todo(undefined, action)
-            ];
-        case 'TOGGLE_TODO':
-            return state.map(t =>
-                todo(t, action)
-            );
-        default:
-            return state
-    }
+const INITIAL_STATE = {
+    items: [],
+    isFetching: false,
+    error: undefined
 };
 
-export default todos;
+function todosReducer(state = INITIAL_STATE, action) {
+    switch (action.type) {
+        case 'FETCH_TODOS_REQUEST':
+            // This time, you may want to display loader in the UI.
+            return Object.assign({}, state, {
+                isFetching: true
+            });
+        case 'FETCH_TODOS_SUCCESS':
+            // Adding derived todos to state
+            return Object.assign({}, state, {
+                isFetching: false,
+                todos: action.todos
+            });
+        case 'FETCH_TODOS_FAILURE':
+            // Providing error message to state, to be able display it in UI.
+            return Object.assign({}, state, {
+                isFetching: false,
+                error: action.error
+            });
+        default:
+            return state;
+    }
+}
+export default todosReducer

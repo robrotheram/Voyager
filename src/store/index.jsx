@@ -1,7 +1,8 @@
 import { createStore, applyMiddleware } from 'redux';
 import todoApp from '../reducers' ;
 import logger from 'redux-logger';
-const middleware = applyMiddleware(logger());
+import thunk from 'redux-thunk';
+const middleware = applyMiddleware(logger(),thunk);
 export default createStore(todoApp, middleware);
 
 
