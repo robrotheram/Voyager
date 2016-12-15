@@ -29,7 +29,7 @@ const Server = React.createClass({
                                                     <i className="icon md-refresh"></i>
                                                 </div>
                                             </form>
-                                            <button className="btn btn-success panel-search-form">Add Server</button>
+                                            <button className="btn btn-success panel-search-form" disabled>Add Server</button>
                                             <ul className="panel-info">
                                                 <li>
                                                     <div className="num">23</div>

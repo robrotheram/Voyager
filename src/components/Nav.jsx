@@ -20,6 +20,9 @@ var Nav = React.createClass({
                     <div onClick={this.onTextChanged} className=" navbar-brand breadcrumb-dn">
                         <p>MDAT</p>{this.props.text}
                     </div>
+                    <ul className="nav navbar-nav float-lg-right padding-right-10">
+                        <li className="nav-item "><a href="#/logout" id="show_login" className="nav-link waves-effect waves-light"><span className="hidden-sm-down">Log Out </span><i className="fa fa-sign-out"></i></a></li>
+                    </ul>
                 </nav>
             </header>
         );

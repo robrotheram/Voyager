@@ -1,8 +1,9 @@
 import React from 'react';
 import Nav from '../components/Nav';
 import SideNav from '../components/SideNav';
-
-import mc_img from '../images/mc/Minecraft Skeleton.png';
+import { connect } from 'react-redux'
+import store from '../store';
+import Gravatar from 'react-gravatar';
 import bg from '../images/bg.png';
 
 const User = React.createClass({
@@ -24,10 +25,11 @@ const User = React.createClass({
                             <div className="overlay-panel overlay-background vertical-align">
                                 <div className="vertical-align-middle">
                                     <a className="">
-                                        <img className="widget-avatar" width="80px" height="80px" src={"./dist/styles/"+mc_img} alt="" />
+
+                                        <Gravatar className="widget-avatar" width="80px" height="80px" email={this.props.auth.email} />
                                     </a>
-                                    <div className="font-size-20 margin-top-10">MACHI</div>
-                                    <div className="font-size-14">machidesign@163.com</div>
+                                    <div className="font-size-20 margin-top-10">{this.props.auth.username}</div>
+                                    <div className="font-size-14">{this.props.auth.email}</div>
                                 </div>
                             </div>
                         </div>
@@ -35,7 +37,7 @@ const User = React.createClass({
                         <br/>
                         <div className="row ">
                             <div className="col-lg-12">
-                                <h1>Edit Profile</h1>
+                                <h1>Edit User Profile</h1>
                             </div>
                         </div>
                             <div className="row">
@@ -44,12 +46,8 @@ const User = React.createClass({
                                         <table className="table borderless">
                                             <tbody>
                                                 <tr>
-                                                    <td>Profile Name:</td>
+                                                    <td>User Name:</td>
                                                     <td><input className="form-control" type="text" defaultValue="Jane"/></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Group:</td>
-                                                    <td><input className="form-control" type="text" defaultValue=""/></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Email:</td>
@@ -83,5 +81,7 @@ const User = React.createClass({
         );
     }
 });
-
-export default User;
+const mapStateToProps = store => {
+    return { auth: store.auth }
+};
+export default connect(mapStateToProps)(User);

@@ -79,8 +79,9 @@ module.exports = {
         new ExtractTextPlugin('dist/styles/main.css', {
             allChunks: true
         }),
-        new webpack.DefinePlugin({'process.env': {'NODE_ENV': JSON.stringify('production')}}),
+        /*new webpack.DefinePlugin({'process.env': {'NODE_ENV': JSON.stringify('production')}}),
         new webpack.NoErrorsPlugin(),
         new webpack.optimize.CommonsChunkPlugin('vendor', 'dist/scripts/vendor.bundle.js', Infinity)
+        */
     ]
 }

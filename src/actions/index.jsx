@@ -1,4 +1,7 @@
+import axios from 'axios';
+
 let nextTodoId = 0
+
 export const addTodo = (text) => {
     return {
         type: 'ADD_TODO',
@@ -20,31 +23,64 @@ export const toggleTodo = (id) => {
         id
     }
 }
-export function fetchTodos() {
-    // Instead of plain objects, we are returning function.
-    return function(dispatch) {
-        // Dispatching REQUEST action, which tells our app, that we are started requesting todos.
-        dispatch({
-            type: 'FETCH_TODOS_REQUEST'
-        });
-        return fetch('/api/todos')
-        // Here, we are getting json body(in our case it will contain `todos` or `error` prop, depending on request was failed or not) from server response
-        // And providing `response` and `body` variables to the next chain.
-            .then(response => response.json().then(body => ({ response, body })))
-            .then(({ response, body }) => {
-                if (!response.ok) {
-                    // If request was failed, dispatching FAILURE action.
-                    dispatch({
-                        type: 'FETCH_TODOS_FAILURE',
-                        error: body.error
-                    });
-                } else {
-                    // When everything is ok, dispatching SUCCESS action.
-                    dispatch({
-                        type: 'FETCH_TODOS_SUCCESS',
-                        todos: body.todos
-                    });
-                }
-            });
+
+function requestData() {
+    return {
+        type: 'REQ_DATA'
+    }
+};
+function requestComplete() {
+    return {
+        type: 'REQ_COMPLETE'
+    }
+};
+
+function receiveData(json) {
+    return{
+        type: 'RECV_DATA',
+        data: json
+    }
+};
+
+function receiveError(json) {
+    return {
+        type: 'RECV_ERROR',
+        data: json
+    }
+};
+
+
+function authenticated(json) {
+    return {
+        type: 'AUTHENTICATED',
+        data: json
     }
 }
+
+function authError(json) {
+    return {
+        type: 'AUTH_ERROR',
+        data: json
+    }
+}
+
+export function fetchData(url) {
+    return function(dispatch) {
+        dispatch(requestData());
+        return axios({
+            url: url,
+            timeout: 20000,
+            method: 'get',
+            responseType: 'json'
+        })
+        .then(function(response) {
+            dispatch(receiveData(response.data));
+        })
+        .catch(function(response){
+            dispatch(receiveError(response.data));
+
+        })
+    }
+};
+
+

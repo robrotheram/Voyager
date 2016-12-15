@@ -50,7 +50,7 @@ class SimpleChart extends React.Component {
 
 const mapStateToProps = store => {
     return {
-        counter: store.todos.length
+       // counter: store.todos.length
     }
 }
 

@@ -1,12 +1,13 @@
 import { combineReducers } from 'redux'
 import auth from './auth'
-import todosReducer from './todos'
-import visibilityFilter from './visibilityFilter'
+import api from './api'
+import register from './register'
+
 
 const todoApp = combineReducers({
     auth,
-    todosReducer,
-    visibilityFilter
+    register,
+    api
 })
 
 export default todoApp

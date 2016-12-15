@@ -33,7 +33,7 @@ const Logout = withRouter(
 
 function requireAuth(nextState, replace) {
     var state = store.getState().auth;
-    if (!state.isAuth) {
+    if (!state.authenticated) {
         replace({
             pathname: '/login',
             state: { nextPathname: nextState.location.pathname }
