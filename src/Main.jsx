@@ -48,7 +48,6 @@ const Main = React.createClass({
                 <Route path="/" component={MainLayout}>
                     <Route path="login" component={Login} />
                     <Route path="logout" component={Logout} />
-
                     <Route path="register" component={Register} />
                     <Route path="dashboard" component={Dashboard} onEnter={requireAuth} />
                     <Route path="world" component={World} onEnter={requireAuth} />

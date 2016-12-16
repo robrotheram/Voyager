@@ -1,6 +1,10 @@
 import React from 'react';
 import Nav from '../components/Nav';
 import SideNav from '../components/SideNav';
+import { connect } from 'react-redux'
+import store from '../store';
+import bg from '../images/rivendell1.jpg';
+import Gravatar from 'react-gravatar';
 
 const Server = React.createClass({
     getInitialState: function () {
@@ -16,7 +20,12 @@ const Server = React.createClass({
                 <div id="wrapper" className={this.state.checked ? 'toggled' : ''}>
                     <SideNav/>
                     <div id="page-content-wrapper" className="wrapper-content">
-                        <div className="container-fluid">
+                        <div className="widget-header cover overlay" >
+                           
+                            <div className="overlay-panel overlay-background vertical-align">
+                            </div>
+                        </div>
+                        <div className="container-fluid user-content">
                             <div className="row">
                                 <div className="col-md-12 personal-info">
                                     <div className="card">
@@ -90,4 +99,8 @@ const Server = React.createClass({
     }
 });
 
-export default Server;
+const mapStateToProps = store => {
+    return { auth: store.auth }
+};
+export default connect(mapStateToProps)(Server);
+

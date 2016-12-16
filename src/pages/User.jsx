@@ -4,7 +4,7 @@ import SideNav from '../components/SideNav';
 import { connect } from 'react-redux'
 import store from '../store';
 import Gravatar from 'react-gravatar';
-import bg from '../images/bg.png';
+import bg from '../images/rivendell1.jpg';
 
 const User = React.createClass({
     getInitialState: function () {
@@ -13,6 +13,7 @@ const User = React.createClass({
     onChildChanged: function(newState) {
         this.setState({ checked: newState });
     },
+
     render(){
         return (
             <div>
@@ -25,7 +26,6 @@ const User = React.createClass({
                             <div className="overlay-panel overlay-background vertical-align">
                                 <div className="vertical-align-middle">
                                     <a className="">
-
                                         <Gravatar className="widget-avatar" width="80px" height="80px" email={this.props.auth.email} />
                                     </a>
                                     <div className="font-size-20 margin-top-10">{this.props.auth.username}</div>
