@@ -22,7 +22,6 @@ const User = React.createClass({
                     <SideNav/>
                     <div id="page-content-wrapper" className="wrapper-content">
                         <div className="widget-header cover overlay" >
-                            <img className="cover-image" src={"./dist/styles/"+bg} />
                             <div className="overlay-panel overlay-background vertical-align">
                                 <div className="vertical-align-middle">
                                     <a className="">
@@ -47,19 +46,19 @@ const User = React.createClass({
                                             <tbody>
                                                 <tr>
                                                     <td>User Name:</td>
-                                                    <td><input className="form-control" type="text" defaultValue="Jane"/></td>
+                                                    <td><input className="form-control" type="text" defaultValue={this.props.auth.username}/></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Email:</td>
-                                                    <td><input className="form-control" type="text" defaultValue="janesemail@gmail.com"/></td>
+                                                    <td><input className="form-control" type="text" defaultValue={this.props.auth.email}/></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Password:</td>
-                                                    <td> <input className="form-control" type="password" defaultValue="11111122333"/></td>
+                                                    <td> <input className="form-control" type="password" placeholder="password"/></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Confirm password:</td>
-                                                    <td><input className="form-control" type="password" defaultValue="11111122333"/></td>
+                                                    <td><input className="form-control" type="password" placeholder="password"/></td>
                                                 </tr>
                                             </tbody>
                                         </table>
