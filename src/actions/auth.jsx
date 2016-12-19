@@ -111,7 +111,7 @@ export function authRegistered(username, email, password) {
 
 
 
-export function getServers(token) {
+export function getServers(token,router) {
     return function(dispatch) {
         return axios({
             url: "http://127.0.0.1:8888/v1/server/list",
@@ -128,6 +128,7 @@ export function getServers(token) {
             })
             .catch(function(response){
                 console.log(response);
+                router.replace('logout');
             })
     }
 };
