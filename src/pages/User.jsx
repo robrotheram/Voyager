@@ -25,7 +25,7 @@ const User = React.createClass({
                             <div className="overlay-panel overlay-background vertical-align">
                                 <div className="vertical-align-middle">
                                     <a className="">
-                                        <Gravatar className="widget-avatar" width="80px" height="80px" email={this.props.auth.email} />
+                                        <Gravatar className="widget-avatar" width="80px" height="80px" size={100} email={this.props.auth.email} />
                                     </a>
                                     <div className="font-size-20 margin-top-10">{this.props.auth.username}</div>
                                     <div className="font-size-14">{this.props.auth.email}</div>

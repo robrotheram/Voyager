@@ -10,7 +10,7 @@ const defaultState= {
 const persistedState = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')) : {}
 const initialState  = ((persistedState.auth!=undefined) ? persistedState.auth : defaultState);
 
-const auth = (state = initialState,  action) => {
+const auth = (state = defaultState,  action) => {
     console.log("xx",action);
     switch (action.type) {
         case 'AUTHENTICATED':

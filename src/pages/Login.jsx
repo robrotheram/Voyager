@@ -1,10 +1,11 @@
 import React from 'react';
 import { Router, Route, IndexRoute, Link, browserHistory, withRouter } from 'react-router';
-import store from '../store';
 import { connect } from 'react-redux'
-
 import {bindActionCreators} from 'redux';
 import * as Actions from '../actions/auth';
+
+import {push} from 'react-router-redux';
+import store from '../store';
 
 const Login = withRouter(
     React.createClass({
@@ -15,8 +16,9 @@ const Login = withRouter(
         },
         componentDidUpdate() {
             if(this.props.auth.authenticated){
-
-                this.props.router.replace('dashboard');
+                store.dispatch(Actions.getServers(this.props.auth.token, this.props.router));
+                store.dispatch(push('dashboard'))
+                //this.props.router.replace('dashboard');
 
             }
         },

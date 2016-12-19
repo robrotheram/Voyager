@@ -1,5 +1,6 @@
 import React from 'react';
-import {Router, Route, IndexRoute, Link, hashHistory, withRouter} from 'react-router';
+import {Router, Route, IndexRoute, Link, hashHistory, browserHistory, withRouter} from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux'
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from "./pages/Dashboard";
@@ -40,11 +41,11 @@ function requireAuth(nextState, replace) {
         });
     }
 }
-
+const history = syncHistoryWithStore(hashHistory, store)
 const Main = React.createClass({
     render: function() {
         return (
-            <Router history={hashHistory}>
+            <Router history={history}>
                 <Route path="/" component={MainLayout}>
                     <Route path="login" component={Login} />
                     <Route path="logout" component={Logout} />
