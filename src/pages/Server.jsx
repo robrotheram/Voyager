@@ -1,6 +1,4 @@
 import React from 'react';
-import Nav from '../components/Nav';
-import SideNav from '../components/SideNav';
 import { connect } from 'react-redux'
 import store from '../store';
 import * as Actions from '../actions/auth';
@@ -8,12 +6,6 @@ import * as Actions from '../actions/auth';
 
 
 const Server = React.createClass({
-    getInitialState: function () {
-        return { checked: false };
-    },
-    onChildChanged: function(newState) {
-        this.setState({ checked: newState });
-    },
     componentDidMount(){
         //store.dispatch(Actions.getServers(this.props.auth.token, this.props.router));
     },
@@ -48,68 +40,61 @@ const Server = React.createClass({
         }
         return (
             <div>
-                <Nav initialChecked={this.state.checked} callbackParent={this.onChildChanged} />
-                <div id="wrapper" className={this.state.checked ? 'toggled' : ''}>
-                    <SideNav/>
-                    <div id="page-content-wrapper" className="wrapper-content">
-                        <div className="widget-header cover overlay" >
+                    <div className="widget-header cover overlay" >
 
-                            <div className="overlay-panel overlay-background vertical-align">
-                            </div>
+                        <div className="overlay-panel overlay-background vertical-align">
                         </div>
+                    </div>
 
-                        <div className="card content">
-                            <div className="card-header white-text river server-heading">
-                                <h1>Servers</h1>
+                    <div className="card content">
+                        <div className="card-header white-text river server-heading">
+                            <h1>Servers</h1>
 
-                                <ul className="panel-info">
-                                    <li>
-                                        {getStatus(api.status)}
-                                    </li>
-                                </ul>
+                            <ul className="panel-info">
+                                <li>
+                                    {getStatus(api.status)}
+                                </li>
+                            </ul>
 
-                            </div>
-                            <div className="panel-body">
-                                <form onSubmit={this.handleSubmit} className="form-horizontal" role="form">
-                                    <table className="table borderless">
-                                        <tbody>
+                        </div>
+                        <div className="panel-body">
+                            <form onSubmit={this.handleSubmit} className="form-horizontal" role="form">
+                                <table className="table borderless">
+                                    <tbody>
+                                    <tr>
+                                        <td>Server Name</td>
+                                        <td>
+                                            <input type="text" ref="server_name" className="form-control" id="inputRounded" defaultValue={api.server_name} />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ip address </td>
+                                        <td>
+                                            <input type="text" ref="ip_address" id="form1" className="form-control" defaultValue={api["ip_address"]} />
+                                        </td>
+                                    </tr>
+                                    {api["public_key"] != undefined &&
                                         <tr>
-                                            <td>Server Name</td>
-                                            <td>
-                                                <input type="text" ref="server_name" className="form-control" id="inputRounded" defaultValue={api.server_name} />
+                                            <td>API Key</td>
+                                            <td style={{display: "inline-flex", width: "100%"}}>
+                                                <input type="text" ref="public_key" id="form1" className="form-control" defaultValue={api["public_key"]} readOnly /> <button className="btn btn-success">Regen</button>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>Ip address </td>
-                                            <td>
-                                                <input type="text" ref="ip_address" id="form1" className="form-control" defaultValue={api["ip_address"]} />
-                                            </td>
-                                        </tr>
-                                        {api["public_key"] != undefined &&
-                                            <tr>
-                                                <td>API Key</td>
-                                                <td style={{display: "inline-flex", width: "100%"}}>
-                                                    <input type="text" ref="public_key" id="form1" className="form-control" defaultValue={api["public_key"]} readOnly /> <button className="btn btn-success">Regen</button>
-                                                </td>
-                                            </tr>
-                                        }
-                                        </tbody>
-                                    </table>
-                                    <div className="form-group">
-                                        <div className="col-md-3 col-lg-offset-3">
-                                            <input type="button" className="btn btn-primary" defaultValue={api["server_name"] != undefined ? 'Update Server' : 'Add Server'}/>
-                                        </div>
-                                        <div className="col-md-3">
-                                            <input type="reset" className="btn btn-default" defaultValue="Cancel"/>
-                                        </div>
+                                    }
+                                    </tbody>
+                                </table>
+                                <div className="form-group">
+                                    <div className="col-md-3 col-lg-offset-3">
+                                        <input type="button" className="btn btn-primary" defaultValue={api["server_name"] != undefined ? 'Update Server' : 'Add Server'}/>
                                     </div>
-                                </form>
-                            </div>
+                                    <div className="col-md-3">
+                                        <input type="reset" className="btn btn-default" defaultValue="Cancel"/>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-            </div>
-
         );
     }
 });

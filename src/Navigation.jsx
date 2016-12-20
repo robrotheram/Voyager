@@ -9,15 +9,7 @@ import Server from './pages/Server';
 import Users from './pages/User';
 import Index from './pages/Index';
 import store from './store';
-var MainLayout = React.createClass({
-    render: function() {
-        return (
-            <div className="app">
-                    {this.props.children}
-            </div>
-        );
-    }
-});
+import BaseLayout from './BaseLayout';
 
 const Logout = withRouter(
     React.createClass({
@@ -42,11 +34,11 @@ function requireAuth(nextState, replace) {
     }
 }
 const history = syncHistoryWithStore(hashHistory, store)
-const Main = React.createClass({
+const Navigation = React.createClass({
     render: function() {
         return (
             <Router history={history}>
-                <Route path="/" component={MainLayout}>
+                <Route path="/" component={BaseLayout}>
                     <Route path="login" component={Login} />
                     <Route path="logout" component={Logout} />
                     <Route path="register" component={Register} />
@@ -61,4 +53,4 @@ const Main = React.createClass({
         );
     }
 });
-export default Main;
+export default Navigation;

@@ -18,6 +18,12 @@ var SideNavLinks = React.createClass({
                 </a>
             </li>
             <li className="site-menu-item has-sub">
+                <a href="#/world">
+                    <span className="site-menu-title">Per Player</span>
+                    <span className="fa fa-angle-right site-menu-arrow"></span>
+                </a>
+            </li>
+            <li className="site-menu-item has-sub">
                 <a href="#/server">
                     <span className="site-menu-title">Server Settings</span>
                     <span className="fa fa-angle-right site-menu-arrow"></span>
