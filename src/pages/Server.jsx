@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import store from '../store';
-import * as Actions from '../actions/auth';
-
+import * as serverAction from '../actions/ServerAction';
 
 
 const Server = React.createClass({
@@ -10,20 +9,30 @@ const Server = React.createClass({
         //store.dispatch(Actions.getServers(this.props.auth.token, this.props.router));
     },
     componentDidUpdate(){
+        this.refs.server_name.value = this.props.Server.server;
+        this.refs.ip_address.value = this.props.Server.ip_address;
+        this.refs.public_key.value = this.props.Server.public_key;
+
     },
     handleSubmit(event) {
         event.preventDefault();
         const server_name = this.refs.server_name.value;
         console.log(server_name)
     },
+    regenKey(event) {
+        event.preventDefault();
+        var server_name = this.props.Server.server;
+        console.log(serverAction)
+        store.dispatch(serverAction.regenAPI(this.props.auth.token, server_name, this.props.router))
+    },
     render(){
         var api = [];
-        console.log("---data---",this.props.api.data.servers);
-        if(this.props.api.data.servers != undefined) {
+        console.log("---data---",this.props);
+        if(this.props.Server != undefined) {
             // if (this.props.api.data.servers.length > 0) {
             //     api = this.props.api.data.servers;
             // }
-            api = this.props.api.data.servers;
+            api = this.props.Server;
             console.log("*****data---",api.server_name);
         }
 
@@ -38,6 +47,7 @@ const Server = React.createClass({
             api.push({})
             console.log(api.length);
         }
+
         return (
             <div>
                     <div className="widget-header cover overlay" >
@@ -64,7 +74,7 @@ const Server = React.createClass({
                                     <tr>
                                         <td>Server Name</td>
                                         <td>
-                                            <input type="text" ref="server_name" className="form-control" id="inputRounded" defaultValue={api.server_name} />
+                                            <input type="text" ref="server_name" className="form-control" id="inputRounded" defaultValue={api.server} />
                                         </td>
                                     </tr>
                                     <tr>
@@ -77,7 +87,9 @@ const Server = React.createClass({
                                         <tr>
                                             <td>API Key</td>
                                             <td style={{display: "inline-flex", width: "100%"}}>
-                                                <input type="text" ref="public_key" id="form1" className="form-control" defaultValue={api["public_key"]} readOnly /> <button className="btn btn-success">Regen</button>
+                                                <input type="text" ref="public_key" id="form1" className="form-control" defaultValue={api["public_key"]} readOnly />
+                                                <button onClick={this.regenKey} className="btn btn-success">Regen</button>
+                                                <button onClick={this.regenKey} className="btn btn-success">Regen</button>
                                             </td>
                                         </tr>
                                     }
@@ -102,7 +114,7 @@ const Server = React.createClass({
 
 const mapStateToProps = store => {
     console.log(store)
-    return { auth: store.auth, api:store.api }
+    return { auth: store.User, Server:store.Server }
 };
 export default connect(mapStateToProps)(Server);
 

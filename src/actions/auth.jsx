@@ -109,26 +109,3 @@ export function authRegistered(username, email, password) {
 };
 
 
-
-
-export function getServers(token,router) {
-    return function(dispatch) {
-        return axios({
-            url: "http://127.0.0.1:8888/v1/server/list",
-            timeout: 20000,
-            crossDomain: true,
-            headers: {
-                'Authorization': 'bearer '+token
-            },
-            method: 'get',
-            responseType: 'json'
-        })
-            .then(function(response) {
-                dispatch(receiveData(response.data));
-            })
-            .catch(function(response){
-                console.log(response);
-                router.replace('logout');
-            })
-    }
-};

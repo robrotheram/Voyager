@@ -26,7 +26,7 @@ var CoverOverlay = React.createClass({
 });
 
 const mapStateToProps = store => {
-    return { auth: store.auth,}
+    return { auth: store.User,}
 };
 export default connect(mapStateToProps)(CoverOverlay);
 

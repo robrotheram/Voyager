@@ -3,7 +3,7 @@ import { Router, Route, IndexRoute, Link, browserHistory, withRouter } from 'rea
 import { connect } from 'react-redux'
 import {bindActionCreators} from 'redux';
 import * as Actions from '../actions/auth';
-
+import * as serverActions from '../actions/ServerAction';
 import {push} from 'react-router-redux';
 import store from '../store';
 
@@ -16,7 +16,7 @@ const Login = withRouter(
         },
         componentDidUpdate() {
             if(this.props.auth.authenticated){
-                store.dispatch(Actions.getServers(this.props.auth.token, this.props.router));
+                store.dispatch(serverActions.get(this.props.auth.token, this.props.router));
                 store.dispatch(push('dashboard'))
                 //this.props.router.replace('dashboard');
 
@@ -66,6 +66,6 @@ const Login = withRouter(
     })
 );
 const mapStateToProps = store => {
-    return { auth: store.auth, api: store.api }
+    return { auth: store.User, api: store.api }
 };
 export default connect(mapStateToProps)(Login);
