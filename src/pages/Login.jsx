@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import {bindActionCreators} from 'redux';
 import * as Actions from '../actions/auth';
 import * as serverActions from '../actions/ServerAction';
+import * as eventActions from '../actions/events';
 import {push} from 'react-router-redux';
 import store from '../store';
 
@@ -17,6 +18,7 @@ const Login  = React.createClass({
             console.log("DATA****",this.props,prevProps);
             if(this.props.auth.authenticated){
                 store.dispatch(serverActions.get(this.props.auth.token, this.props.router));
+                store.dispatch(eventActions.getEvents(this.props.auth.token, "testACCOUNT",1479206000, 60));
                 store.dispatch(push('dashboard'))
             }
         },
@@ -25,6 +27,7 @@ const Login  = React.createClass({
             const email = this.refs.email.value;
             const pass = this.refs.pass.value;
             store.dispatch(Actions.authLogin(email,pass));
+
         },
         render() {
             return (

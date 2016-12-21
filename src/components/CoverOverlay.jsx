@@ -24,7 +24,6 @@ var CoverOverlay = React.createClass({
         );
     }
 });
-
 const mapStateToProps = store => {
     return { auth: store.User,}
 };

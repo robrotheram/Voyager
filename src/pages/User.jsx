@@ -4,7 +4,6 @@ import Gravatar from 'react-gravatar';
 
 import store from '../store';
 import * as Actions from '../actions/auth';
-
 const User = React.createClass({
     getInitialState() {
         return { errors: null };
@@ -104,7 +103,7 @@ const User = React.createClass({
                                 </div>
                                 <div className="col-md-3">
                                     <button onClick={this.updateForm} className="btn btn-default btn-block">Cancel</button>
-                    </div>
+                                </div>
                             </div>
                         </form>
                     </div>

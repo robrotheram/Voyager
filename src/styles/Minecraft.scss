@@ -1,0 +1,10 @@
+$icon-width: 16px;
+$icon-height: 16px;
+
+
+.media-icon {
+  background-image: url("../images/ItemCSS.png");
+  background-position:($icon-width * 5) ($icon-height * 1);
+  width: 16px;
+  height: 16px;
+}

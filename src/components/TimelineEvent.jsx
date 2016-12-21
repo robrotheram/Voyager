@@ -4,18 +4,13 @@ var TimelineEvent = React.createClass({
         return (
             <li className="timeline-reverse">
                 <div className="timeline-content-wrap">
-                    <div className="timeline-dot bg-cyan-600">
-                        <i className="icon wb-file" aria-hidden="true"></i>
+                    <div className="timeline-dot" style={{"background-color" : "transparent"}}>
+                        <img width="42px"  src={"src/images/mc/grass.png"} />
                     </div>
                     <div className="timeline-content">
                         <div className="title">
-                            <span className="authors">Jeff Erixon</span>
-                            invite you to attend topic discussion in
-                            <span className="room-number">B205</span>
-                            classroom
-                        </div>
-                        <div className="metas">
-                            active 4 hours ago
+                            <span className="authors">Player Event</span>
+
                         </div>
                         <div className="tags">
                             As user experience designers we have to find the sweet spot
