@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux'
 import Nav from './components/Nav'
 import SideNav from './components/SideNav'
+import store from './store';
+import * as navAction from './actions/nav';
 
 var BaseLayout = React.createClass({
     getInitialState: function () {
@@ -11,17 +13,18 @@ var BaseLayout = React.createClass({
         this.setState({ checked: newState });
     },
     updateState:function () {
-        if(this.state.checked){
-            this.setState({ checked: false });
+        if(this.props.nav.toggled){
+            store.dispatch(navAction.toggleNav());
         }
     },
+
     render: function() {
         if(this.props.auth.authenticated)
         {
             return (
                 <div className="app">
-                    <Nav initialChecked={this.state.checked} callbackParent={this.onChildChanged}/>
-                    <div id="wrapper" className={this.state.checked ? 'toggled' : ''}>
+                    <Nav/>
+                    <div id="wrapper" className={this.props.nav.toggled ? 'toggled' : ''}>
                         <SideNav/>
                         <div id="page-content-wrapper" className="wrapper-content" >
                             <div onClick={this.updateState} >
@@ -44,6 +47,6 @@ var BaseLayout = React.createClass({
     }
 });
 const mapStateToProps = store => {
-    return { auth: store.User }
+    return { auth: store.User, nav: store.nav }
 };
 export default  connect(mapStateToProps)(BaseLayout);

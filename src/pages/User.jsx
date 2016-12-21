@@ -9,6 +9,9 @@ const User = React.createClass({
     getInitialState() {
         return { errors: null };
     },
+    componentDidMount(){
+        store.dispatch({type:"REQ_RESET"});
+    },
     updateForm(){
         this.refs.email.value = this.props.auth.email;
     },
@@ -25,7 +28,7 @@ const User = React.createClass({
         const pass = this.refs.pass.value;
         const pass2 = this.refs.pass2.value;
         var token = this.props.auth.token;
-        console.log( pass != "");
+
         if((pass!=undefined) && (pass != "")) {
             if (pass != pass2) {
                 return this.setState({errors: "Passwords Do Not Match"});
@@ -34,6 +37,8 @@ const User = React.createClass({
                 return this.setState({errors: "Password too week"});
             }
             store.dispatch(Actions.updateUser(token, email, pass))
+        }else{
+            store.dispatch(Actions.updateEmail(token, email))
         }
     },
     render(){
@@ -51,13 +56,18 @@ const User = React.createClass({
                     </div>
                 </div>
                 <div className="card content">
-                    <div className="card-header white-text emeralde server-heading">
+                    <div className="card-header white-text cyan server-heading">
                         <h1>Update Profile</h1>
-
-                        <ul className="panel-info">
+                        <ul className="panel-info" style={{float:"left"}}>
                             <li>
-                                {this.state.errors && (
-                                    <span className="label label-danger">{this.state.errors}</span>
+                                {this.props.api.fetching && (
+                                    <span className="label label-info">Updating</span>
+                                )}
+                                {this.props.api.error && (
+                                    <span className="label label-danger">Update failed</span>
+                                )}
+                                {this.props.api.complete && (
+                                    <span className="label label-success">Update Success</span>
                                 )}
                             </li>
                         </ul>
@@ -105,6 +115,6 @@ const User = React.createClass({
     }
 });
 const mapStateToProps = store => {
-    return { auth: store.User }
+    return { auth: store.User, api: store.api }
 };
 export default connect(mapStateToProps)(User);

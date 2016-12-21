@@ -7,8 +7,7 @@ import * as serverActions from '../actions/ServerAction';
 import {push} from 'react-router-redux';
 import store from '../store';
 
-const Login = withRouter(
-    React.createClass({
+const Login  = React.createClass({
         getInitialState() {
             return {
                 error: false
@@ -19,8 +18,6 @@ const Login = withRouter(
             if(this.props.auth.authenticated){
                 store.dispatch(serverActions.get(this.props.auth.token, this.props.router));
                 store.dispatch(push('dashboard'))
-                //this.props.router.replace('dashboard');
-
             }
         },
         handleSubmit(event) {
@@ -64,8 +61,8 @@ const Login = withRouter(
                 </div>
             );
         }
-    })
-);
+    });
+
 const mapStateToProps = store => {
     return { auth: store.User, api: store.api }
 };

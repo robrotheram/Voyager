@@ -2,11 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux'
 import store from '../store';
 import * as serverAction from '../actions/ServerAction';
-
+var ClipboardButton = require('react-clipboard.js');
 
 const Server = React.createClass({
+    getInitialState() {
+        return { errors: null };
+    },
     componentDidMount(){
-        //store.dispatch(Actions.getServers(this.props.auth.token, this.props.router));
+        store.dispatch({type:"REQ_RESET"});
     },
     componentDidUpdate(){
         this.updateForm();
@@ -24,8 +27,11 @@ const Server = React.createClass({
         var description = this.refs.description.value;
         var ip_address = this.refs.ip_address.value;
         var token = this.props.auth.token;
-        store.dispatch(serverAction.update(token,server_name_old,server_name, description,ip_address));
-
+        if(server_name_old != undefined && server_name_old !="") {
+            store.dispatch(serverAction.update(token, server_name_old, server_name, description, ip_address));
+        }else{
+            store.dispatch(serverAction.add(token, server_name, description, ip_address));
+        }
     },
     regenKey(event) {
         event.preventDefault();
@@ -43,7 +49,6 @@ const Server = React.createClass({
             api = this.props.Server;
             console.log("*****data---",api.server_name);
         }
-
         function getStatus(status) {
             switch (status){
                 case "ALIVE": return (<span className="label label-success">Active</span>)
@@ -55,82 +60,91 @@ const Server = React.createClass({
             api.push({})
             console.log(api.length);
         }
-
         return (
             <div>
-                    <div className="widget-header cover overlay" >
+                <div className="widget-header cover overlay" >
 
-                        <div className="overlay-panel overlay-background vertical-align">
-                        </div>
-                    </div>
-
-                    <div className="card content">
-                        <div className="card-header white-text river server-heading">
-                            <h1>Servers</h1>
-
-                            <ul className="panel-info">
-                                <li>
-                                    {getStatus(api.status)}
-                                </li>
-                            </ul>
-
-                        </div>
-                        <div className="panel-body">
-                            <form onSubmit={this.handleSubmit} className="form-horizontal" role="form">
-                                <table className="table borderless">
-                                    <tbody>
-                                    <tr>
-                                        <td>Server Name</td>
-                                        <td>
-                                            <input type="text" ref="server_name" className="form-control" id="inputRounded" defaultValue={api.server} />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Description</td>
-                                        <td>
-                                            <input type="text" ref="description" id="form1" className="form-control" defaultValue={api["description"]} />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ip address / Hostname </td>
-                                        <td>
-                                            <input type="text" ref="ip_address" id="form1" className="form-control" defaultValue={api["ip_address"]} />
-                                        </td>
-                                    </tr>
-
-                                    {api["public_key"] != undefined &&
-                                        <tr>
-                                            <td>API Key</td>
-                                            <td style={{display: "inline-flex", width: "100%"}}>
-                                                <input type="text" ref="public_key" id="form1" className="form-control" defaultValue={api["public_key"]} readOnly />
-                                                <button style={{margin: "0 5px 0 0"}} className="btn btn-primary"><span className="fa fa-copy"></span></button>
-                                                <button onClick={this.regenKey} className="btn btn-success">Regen</button>
-                                            </td>
-                                        </tr>
-                                    }
-                                    </tbody>
-                                </table>
-                                <div className="form-group">
-                                    <div className="col-md-3 col-lg-offset-3">
-                                        <input type="submit" className="btn btn-primary" defaultValue={api["server"] != undefined ? 'Update Server' : 'Add Server'}/>
-                                    </div>
-                                    <div className="col-md-3">
-                                        <button onClick={this.updateForm} className="btn btn-default btn-block">Cancel</button>
-                                        
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                    <div className="overlay-panel overlay-background vertical-align">
                     </div>
                 </div>
+                <div className="card content">
+                    <div className="card-header white-text river server-heading">
+                        <h1>Servers</h1>
+                        <ul className="panel-info" style={{float:"left"}}>
+                            <li>
+                                {this.props.api.fetching && (
+                                    <span className="label label-info">Updating</span>
+                                )}
+                                {this.props.api.error && (
+                                    <span className="label label-danger">Update failed</span>
+                                )}
+                                {this.props.api.complete && (
+                                    <span className="label label-success">Update Success</span>
+                                )}
+                            </li>
+                        </ul>
+                        <ul className="panel-info">
+                            <li>
+                                {getStatus(api.status)}
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="panel-body">
+                        <form onSubmit={this.handleSubmit} className="form-horizontal" role="form">
+                            <table className="table borderless">
+                                <tbody>
+                                <tr>
+                                    <td>Server Name</td>
+                                    <td>
+                                        <input type="text" ref="server_name" className="form-control" id="inputRounded" defaultValue={api.server} />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Description</td>
+                                    <td>
+                                        <input type="text" ref="description" id="form1" className="form-control" defaultValue={api["description"]} />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ip address / Hostname </td>
+                                    <td>
+                                        <input type="text" ref="ip_address" id="form1" className="form-control" defaultValue={api["ip_address"]} />
+                                    </td>
+                                </tr>
+
+                                {api["public_key"] != undefined &&
+                                    <tr>
+                                        <td>API Key</td>
+                                        <td style={{display: "inline-flex", width: "100%"}}>
+                                            <input  type="text" ref="public_key" id="foo" className="form-control" defaultValue={api["public_key"]} readOnly />
+                                            <ClipboardButton style={{margin: "0 5px 0 0"}} data-clipboard-text={api["public_key"]} className="btn btn-primary">
+                                                <span className="fa fa-copy"></span>
+                                            </ClipboardButton>
+                                            <button onClick={this.regenKey} className="btn btn-success">Regen</button>
+                                        </td>
+                                    </tr>
+                                }
+                                </tbody>
+                            </table>
+                            <div className="form-group">
+                                <div className="col-md-3 col-lg-offset-3">
+                                    <input type="submit" className="btn btn-primary" defaultValue={api["server"] != "" ? 'Update Server' : 'Add Server'}/>
+                                </div>
+                                <div className="col-md-3">
+                                    <button onClick={this.updateForm} className="btn btn-default btn-block">Cancel</button>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         );
     }
 });
-
-
 const mapStateToProps = store => {
     console.log(store)
-    return { auth: store.User, Server:store.Server }
+    return { auth: store.User, Server:store.Server, api:store.api }
 };
 export default connect(mapStateToProps)(Server);
 

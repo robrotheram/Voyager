@@ -1,4 +1,6 @@
 import React from 'react';
+import store from '../store';
+import * as navAction from '../actions/nav';
 
 var Nav = React.createClass({
     getInitialState: function() {
@@ -6,9 +8,11 @@ var Nav = React.createClass({
         return { checked: this.props.initialChecked };
     },
     onTextChanged: function() {
-        var newState = !this.state.checked;
+        /*var newState = !this.state.checked;
         this.setState({ checked: newState });
         this.props.callbackParent(newState); // hey parent, I've changed!
+        */
+        store.dispatch(navAction.toggleNav());
     },
     render: function() {
         return (

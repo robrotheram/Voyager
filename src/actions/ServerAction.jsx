@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export function regenAPI(token,servername, router) {
     return function(dispatch) {
+        dispatch({type: 'REQ_DATA'});
         return axios({
             url: "http://127.0.0.1:8888/v1/server/regen",
             timeout: 20000,
@@ -15,17 +16,18 @@ export function regenAPI(token,servername, router) {
             },
             responseType: 'json'
         })
-            .then(function(response) {
-                dispatch(updateKey(response.data));
-            })
-            .catch(function(response){
-                console.log(response);
-                router.replace('logout');
-            })
+        .then(function(response) {
+            dispatch(updateKey(response.data));
+            dispatch({type: 'REQ_COMPLETE'});
+        })
+        .catch(function(response){
+            dispatch({type: 'RECV_ERROR'});
+        })
     }
 };
 export function update(token,servernameold,servername,desciption, ipaddress) {
     return function(dispatch) {
+        dispatch({type: 'REQ_DATA'});
         return axios({
             url: "http://127.0.0.1:8888/v1/server/update",
             timeout: 20000,
@@ -44,14 +46,40 @@ export function update(token,servernameold,servername,desciption, ipaddress) {
         })
             .then(function(response) {
                 dispatch(updateServer(response.data.servers));
+                dispatch({type: 'REQ_COMPLETE'});
             })
             .catch(function(response){
-                console.log(response);
-                router.replace('logout');
+                dispatch({type: 'RECV_ERROR'});
             })
     }
 };
-
+export function add(token,servername,desciption, ipaddress) {
+    return function(dispatch) {
+        dispatch({type: 'REQ_DATA'});
+        return axios({
+            url: "http://127.0.0.1:8888/v1/server/update",
+            timeout: 20000,
+            crossDomain: true,
+            headers: {
+                'Authorization': 'bearer '+token
+            },
+            method: 'post',
+            data: {
+                serverName:servername,
+                description:desciption,
+                ip_address:ipaddress
+            },
+            responseType: 'json'
+        })
+            .then(function(response) {
+                dispatch(addServer(response.data.servers));
+                dispatch({type: 'REQ_COMPLETE'});
+            })
+            .catch(function(response){
+                dispatch({type: 'RECV_ERROR'});
+            })
+    }
+};
 export function get(token,router) {
     console.log("server data is requested *****");
     return function(dispatch) {
@@ -67,7 +95,7 @@ export function get(token,router) {
         })
             .then(function(response) {
                 if(response.data.servers !=undefined){
-                    dispatch(addServer(response.data.servers));
+                    dispatch(getServer(response.data.servers));
                 }
 
             })
@@ -97,6 +125,12 @@ function updateServer(json) {
 function addServer(json) {
     return{
         type: 'SERVER_ADDED',
+        data: json
+    }
+};
+function getServer(json) {
+    return{
+        type: 'SERVER_GOT',
         data: json
     }
 };

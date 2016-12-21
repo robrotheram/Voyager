@@ -24,6 +24,7 @@
     "bootstrap": "^3.3.7",
     "bootstrap-sass": "^3.3.7",
     "chartist": "^0.10.1",
+    "clipboard": "^1.5.16",
     "config": "^1.24.0",
     "css-loader": "^0.26.1",
     "d3": "^3.5.13",
@@ -66,6 +67,7 @@
     "autoprefixer-loader": "^3.2.0",
     "babel-preset-stage-2": "^6.18.0",
     "extract-text-webpack-plugin": "^1.0.1",
+    "react-clipboard.js": "^1.0.1",
     "react-router-redux": "^4.0.7"
   }
 }
