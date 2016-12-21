@@ -14,7 +14,8 @@ const Login = withRouter(
                 error: false
             };
         },
-        componentDidUpdate() {
+        componentDidUpdate(prevProps, prevState) {
+            console.log("DATA****",this.props,prevProps);
             if(this.props.auth.authenticated){
                 store.dispatch(serverActions.get(this.props.auth.token, this.props.router));
                 store.dispatch(push('dashboard'))
@@ -48,8 +49,8 @@ const Login = withRouter(
                     )}
                     <div className="box">
                         <form className="login-form" onSubmit={this.handleSubmit}>
-                            <input type="text" ref="email" placeholder="username" defaultValue="bob3"/>
-                            <input type="password" ref="pass" placeholder="pass" defaultValue="pass" />
+                            <input type="text" ref="email" placeholder="username" defaultValue="Test2"/>
+                            <input type="password" ref="pass" placeholder="pass" defaultValue="Test123" />
                             <div className="row">
                                 <div className="col-md-6">
                                     <button type="submit" className="btn btn-primary login-btn btn-block">sign in</button>

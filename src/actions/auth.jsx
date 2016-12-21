@@ -80,6 +80,15 @@ function RegisteredError(json) {
     }
 };
 
+function userUpdated(json) {
+    return {
+        type: 'USER_UPDATED',
+        data: json
+    }
+};
+
+
+
 export function authRegistered(username, email, password) {
     return function(dispatch) {
         return axios({
@@ -101,6 +110,30 @@ export function authRegistered(username, email, password) {
                 }else{
                     dispatch(RegisteredError(response.data));
                 }
+            })
+            .catch(function(response){
+                console.log(response);
+            })
+    }
+};
+export function updateUser(token, email, password) {
+    return function(dispatch) {
+        return axios({
+            url: "http://127.0.0.1:8888/users/update",
+            timeout: 20000,
+            crossDomain: true,
+            method: 'post',
+            headers: {
+                'Authorization': 'bearer '+token
+            },
+            data: {
+                email: email,
+                password: password,
+            },
+            responseType: 'json'
+        })
+            .then(function(response) {
+                dispatch(userUpdated(response.data));
             })
             .catch(function(response){
                 console.log(response);

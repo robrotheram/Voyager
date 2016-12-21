@@ -24,6 +24,8 @@ const auth = (state = defaultState,  action) => {
              };
         case 'AUTH_ERROR':
             return { ...state, authenticated:false, msg:action.data.msg, error:true };
+        case 'USER_UPDATED':
+            return { ...state, email:action.data.email };
         case 'LOG_OUT':
             return { ...state,
                 authenticated:false,

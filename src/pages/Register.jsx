@@ -9,14 +9,14 @@ const Register = withRouter(
         getInitialState() {
             return { errors: null };
         },
+        
+        componentDidMount() {
+            store.dispatch({type:"REGISTERED_RESET"})
+        },
         checkPassword(str) {
             var re = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
             return re.test(str);
         },
-        componentDidMount() {
-            store.dispatch({type:"REGISTERED_RESET"})
-        },
-
         handleSubmit(event) {
             event.preventDefault();
             const username = this.refs.username.value;

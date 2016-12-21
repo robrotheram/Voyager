@@ -9,15 +9,23 @@ const Server = React.createClass({
         //store.dispatch(Actions.getServers(this.props.auth.token, this.props.router));
     },
     componentDidUpdate(){
+        this.updateForm();
+    },
+    updateForm(){
         this.refs.server_name.value = this.props.Server.server;
         this.refs.ip_address.value = this.props.Server.ip_address;
+        this.refs.description.value = this.props.Server.description;
         this.refs.public_key.value = this.props.Server.public_key;
-
     },
     handleSubmit(event) {
         event.preventDefault();
-        const server_name = this.refs.server_name.value;
-        console.log(server_name)
+        var server_name_old = this.props.Server.server;
+        var server_name = this.refs.server_name.value;
+        var description = this.refs.description.value;
+        var ip_address = this.refs.ip_address.value;
+        var token = this.props.auth.token;
+        store.dispatch(serverAction.update(token,server_name_old,server_name, description,ip_address));
+
     },
     regenKey(event) {
         event.preventDefault();
@@ -78,17 +86,24 @@ const Server = React.createClass({
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Ip address </td>
+                                        <td>Description</td>
+                                        <td>
+                                            <input type="text" ref="description" id="form1" className="form-control" defaultValue={api["description"]} />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ip address / Hostname </td>
                                         <td>
                                             <input type="text" ref="ip_address" id="form1" className="form-control" defaultValue={api["ip_address"]} />
                                         </td>
                                     </tr>
+
                                     {api["public_key"] != undefined &&
                                         <tr>
                                             <td>API Key</td>
                                             <td style={{display: "inline-flex", width: "100%"}}>
                                                 <input type="text" ref="public_key" id="form1" className="form-control" defaultValue={api["public_key"]} readOnly />
-                                                <button onClick={this.regenKey} className="btn btn-success">Regen</button>
+                                                <button style={{margin: "0 5px 0 0"}} className="btn btn-primary"><span className="fa fa-copy"></span></button>
                                                 <button onClick={this.regenKey} className="btn btn-success">Regen</button>
                                             </td>
                                         </tr>
@@ -97,10 +112,11 @@ const Server = React.createClass({
                                 </table>
                                 <div className="form-group">
                                     <div className="col-md-3 col-lg-offset-3">
-                                        <input type="button" className="btn btn-primary" defaultValue={api["server_name"] != undefined ? 'Update Server' : 'Add Server'}/>
+                                        <input type="submit" className="btn btn-primary" defaultValue={api["server"] != undefined ? 'Update Server' : 'Add Server'}/>
                                     </div>
                                     <div className="col-md-3">
-                                        <input type="reset" className="btn btn-default" defaultValue="Cancel"/>
+                                        <button onClick={this.updateForm} className="btn btn-default btn-block">Cancel</button>
+                                        
                                     </div>
                                 </div>
                             </form>

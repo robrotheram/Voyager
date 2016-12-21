@@ -10,6 +10,11 @@ var BaseLayout = React.createClass({
     onChildChanged: function(newState) {
         this.setState({ checked: newState });
     },
+    updateState:function () {
+        if(this.state.checked){
+            this.setState({ checked: false });
+        }
+    },
     render: function() {
         if(this.props.auth.authenticated)
         {
@@ -18,8 +23,10 @@ var BaseLayout = React.createClass({
                     <Nav initialChecked={this.state.checked} callbackParent={this.onChildChanged}/>
                     <div id="wrapper" className={this.state.checked ? 'toggled' : ''}>
                         <SideNav/>
-                        <div id="page-content-wrapper" className="wrapper-content">
-                            {this.props.children}
+                        <div id="page-content-wrapper" className="wrapper-content" >
+                            <div onClick={this.updateState} >
+                                {this.props.children}
+                            </div>
                         </div>
                     </div>
                 </div>
