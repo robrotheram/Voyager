@@ -4,6 +4,7 @@ import { syncHistoryWithStore } from 'react-router-redux'
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from "./pages/Dashboard";
+import Players from "./pages/Players";
 import World from './pages/World';
 import Server from './pages/Server';
 import Users from './pages/User';
@@ -43,6 +44,7 @@ const Navigation = React.createClass({
                     <Route path="logout" component={Logout} />
                     <Route path="register" component={Register} />
                     <Route path="dashboard" component={Dashboard} onEnter={requireAuth} />
+                    <Route path="players" component={Players} onEnter={requireAuth} />
                     <Route path="world" component={World} onEnter={requireAuth} />
                     <IndexRoute component={Index}/>
                     <Route path="users" onEnter={requireAuth} component={Users} />

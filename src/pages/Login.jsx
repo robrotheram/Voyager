@@ -18,8 +18,8 @@ const Login  = React.createClass({
             console.log("DATA****",this.props,prevProps);
             if(this.props.auth.authenticated){
                 store.dispatch(serverActions.get(this.props.auth.token, this.props.router));
-                store.dispatch(eventActions.getEvents(this.props.auth.token, "testACCOUNT",1479206000, 60));
-                store.dispatch(push('dashboard'))
+                store.dispatch(eventActions.getEvents(this.props.auth.token, "testACCOUNT",1479206000, 100));
+                store.dispatch(push('dashboard'));
             }
         },
         handleSubmit(event) {

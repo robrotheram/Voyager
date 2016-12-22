@@ -18,7 +18,8 @@ export function getEvents(token, server, time,delta) {
             responseType: 'json'
         })
         .then(function(response) {
-            console.log(response)
+            console.log("SOME_DATA",response)
+            dispatch({type:"EVENT_RECV", data:response.data})
             })
         .catch(function(response){
             console.log(response)
