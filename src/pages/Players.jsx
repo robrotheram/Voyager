@@ -4,45 +4,114 @@ import SimpleChart from '../components/SimpleChart';
 import CardD3Map from '../cards/CardD3Map';
 import CardStats from '../cards/CardStats';
 
-const Dashboard = React.createClass({
+const Players = React.createClass({
     render(){
         return (
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-lg-3">
-                        <CardTitles color="turquoise" img="Minecraft%20Main%20Character" title="title" value="123"/>
-                    </div>
-                    <div className="col-lg-3">
-                       <CardTitles color="river" img="Minecraft%20Pickaxe-100" title="title" value="123"/>
-                    </div>
-                    <div className="col-lg-3">
-                       <CardTitles color="alizarine" img="Crafting%20Table-100" title="title" value="123"/>
-                    </div>
-                    <div className="col-lg-3">
-                        <CardTitles color="amethyste" img="Center%20Direction" title="title" value="123"/>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-lg-4">
-                        <SimpleChart color="emeralde"/>
-                    </div>
-                    <div className="col-lg-4">
-                        <SimpleChart color="cyan"/>
-                    </div>
-                    <div className="col-lg-4">
-                        <SimpleChart color="bluegrey"/>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-lg-7">
-                        <CardD3Map color="river"/>
-                    </div>
-                    <div className="col-lg-5">
-                        <CardStats/>
+                    <div className="col-md-12 personal-info">
+                        <div className="card" style={{"padding":"15px"}}>
+                            <div className="row" style={{"max-height":"170px", "overflow-y":"auto", "margin":"0px", "padding-top":"15px" }}>
+                                <div className="col-sm-1" style={{"text-align": "center"}}>
+                                    <img width="100%" style={{"vertical-align":"super", "max-width":"100px"}} src="https://mcapi.ca/avatar/Yive"/>
+                                </div>
+                                <div className="col-sm-1" style={{"text-align": "center"}}>
+                                    <img width="100%" style={{"vertical-align":"super", "max-width":"100px"}} src="https://mcapi.ca/avatar/Yive"/>
+                                </div>
+                                <div className="col-sm-1" style={{"text-align": "center"}}>
+                                    <img width="100%" style={{"vertical-align":"super", "max-width":"100px"}} src="https://mcapi.ca/avatar/Yive"/>
+                                </div>
+                                <div className="col-sm-1" style={{"text-align": "center"}}>
+                                    <img width="100%" style={{"vertical-align":"super", "max-width":"100px"}} src="https://mcapi.ca/avatar/Yive"/>
+                                </div>
+                                <div className="col-sm-1" style={{"text-align": "center"}}>
+                                    <img width="100%" style={{"vertical-align":"super", "max-width":"100px"}} src="https://mcapi.ca/avatar/Yive"/>
+                                </div>
+                                <div className="col-sm-1" style={{"text-align": "center"}}>
+                                    <img width="100%" style={{"vertical-align":"super", "max-width":"100px"}} src="https://mcapi.ca/avatar/Yive"/>
+                                </div>
+                                <div className="col-sm-1" style={{"text-align": "center"}}>
+                                    <img width="100%" style={{"vertical-align":"super", "max-width":"100px"}} src="https://mcapi.ca/avatar/Yive"/>
+                                </div>
+                                <div className="col-sm-1" style={{"text-align": "center"}}>
+                                    <img width="100%" style={{"vertical-align":"super", "max-width":"100px"}} src="https://mcapi.ca/avatar/Yive"/>
+                                </div>
+                                <div className="col-sm-1" style={{"text-align": "center"}}>
+                                    <img width="100%" style={{"vertical-align":"super", "max-width":"100px"}} src="https://mcapi.ca/avatar/Yive"/>
+                                </div>
+                                <div className="col-sm-1" style={{"text-align": "center"}}>
+                                    <img width="100%" style={{"vertical-align":"super", "max-width":"100px"}} src="https://mcapi.ca/avatar/Yive"/>
+                                </div>
+                                <div className="col-sm-1" style={{"text-align": "center"}}>
+                                    <img width="100%" style={{"vertical-align":"super", "max-width":"100px"}} src="https://mcapi.ca/avatar/Yive"/>
+                                </div>
+                                <div className="col-sm-1" style={{"text-align": "center"}}>
+                                    <img width="100%" style={{"vertical-align":"super", "max-width":"100px"}} src="https://mcapi.ca/avatar/Yive"/>
+                                </div>
+                                <div className="col-sm-1" style={{"text-align": "center"}}>
+                                    <img width="100%" style={{"vertical-align":"super", "max-width":"100px"}} src="https://mcapi.ca/avatar/Yive"/>
+                                </div>
+                                <div className="col-sm-1" style={{"text-align": "center"}}>
+                                    <img width="100%" style={{"vertical-align":"super", "max-width":"100px"}} src="https://mcapi.ca/avatar/Yive"/>
+                                </div>
+                                <div className="col-sm-1" style={{"text-align": "center"}}>
+                                    <img width="100%" style={{"vertical-align":"super", "max-width":"100px"}} src="https://mcapi.ca/avatar/Yive"/>
+                                </div>
+                                <div className="col-sm-1" style={{"text-align": "center"}}>
+                                    <img width="100%" style={{"vertical-align":"super", "max-width":"100px"}} src="https://mcapi.ca/avatar/Yive"/>
+                                </div>
+                                <div className="col-sm-1" style={{"text-align": "center"}}>
+                                    <img width="100%" style={{"vertical-align":"super", "max-width":"100px"}} src="https://mcapi.ca/avatar/Yive"/>
+                                </div>
+                                <div className="col-sm-1" style={{"text-align": "center"}}>
+                                    <img width="100%" style={{"vertical-align":"super", "max-width":"100px"}} src="https://mcapi.ca/avatar/Yive"/>
+                                </div>
+                                <div className="col-sm-1" style={{"text-align": "center"}}>
+                                    <img width="100%" style={{"vertical-align":"super", "max-width":"100px"}} src="https://mcapi.ca/avatar/Yive"/>
+                                </div>
+                                <div className="col-sm-1" style={{"text-align": "center"}}>
+                                    <img width="100%" style={{"vertical-align":"super", "max-width":"100px"}} src="https://mcapi.ca/avatar/Yive"/>
+                                </div>
+                                <div className="col-sm-1" style={{"text-align": "center"}}>
+                                    <img width="100%" style={{"vertical-align":"super", "max-width":"100px"}} src="https://mcapi.ca/avatar/Yive"/>
+                                </div>
+                                <div className="col-sm-1" style={{"text-align": "center"}}>
+                                    <img width="100%" style={{"vertical-align":"super", "max-width":"100px"}} src="https://mcapi.ca/avatar/Yive"/>
+                                </div>
+                                <div className="col-sm-1" style={{"text-align": "center"}}>
+                                    <img width="100%" style={{"vertical-align":"super", "max-width":"100px"}} src="https://mcapi.ca/avatar/Yive"/>
+                                </div>
+                                <div className="col-sm-1" style={{"text-align": "center"}}>
+                                    <img width="100%" style={{"vertical-align":"super", "max-width":"100px"}} src="https://mcapi.ca/avatar/Yive"/>
+                                </div>
+                                <div className="col-sm-1" style={{"text-align": "center"}}>
+                                    <img width="100%" style={{"vertical-align":"super", "max-width":"100px"}} src="https://mcapi.ca/avatar/Yive"/>
+                                </div>
+                                <div className="col-sm-1" style={{"text-align": "center"}}>
+                                    <img width="100%" style={{"vertical-align":"super", "max-width":"100px"}} src="https://mcapi.ca/avatar/Yive"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="card">
+                            <div className="card-header white-text river server-heading">
+                                <h1>Players</h1>
+                                <a  className="btn turquoise btn-xl  panel-search-form">Sign-In</a>
+                                <a  className="btn turquoise btn-xl  panel-search-form">Sign-In</a>
+                                <a  className="btn turquoise btn-xl  panel-search-form">Sign-In</a>
+                                <a  className="btn turquoise btn-xl  panel-search-form">Sign-In</a>
+                                <a  className="btn turquoise btn-xl btn panel-search-form">Sign-In</a>
+                            </div>
+
+                            <hr/>
+
+
+
+                        </div>
                     </div>
                 </div>
             </div>
         );
     }
 });
-export default Dashboard;
+export default Players;

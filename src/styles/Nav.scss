@@ -232,3 +232,8 @@ $primary-color: #4285F4;
 .padding-right-10{
   padding-right:10px!important; ;
 }
+@media (max-width: 768px) {
+  .navbar-nav {
+    margin: -5px -0;
+  }
+}
