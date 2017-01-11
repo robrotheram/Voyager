@@ -1,5 +1,5 @@
 import React from 'react';
-import JVectorMap from '../componetents/JVectormap';
+import JVectorMap from '../components/JVectormap';
 
 var CardD3Map = React.createClass({
     render: function() {

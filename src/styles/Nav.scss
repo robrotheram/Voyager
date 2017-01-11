@@ -216,3 +216,24 @@ $primary-color: #4285F4;
 .dropdown-menu{
   z-index: 2000; width: 100%
 }
+
+@media (min-width: 768px) {
+  .navbar-nav > li > a {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+  .navbar.navbar-dark .navbar-nav .nav-item a:hover {
+    transition: .35s;
+    color: rgb(255, 255, 255);
+    background-color: rgba(66, 96, 244, 0.64);
+  }
+}
+
+.padding-right-10{
+  padding-right:10px!important; ;
+}
+@media (max-width: 768px) {
+  .navbar-nav {
+    margin: -5px -0;
+  }
+}

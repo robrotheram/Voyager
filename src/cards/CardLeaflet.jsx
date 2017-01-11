@@ -1,5 +1,5 @@
 import React from 'react';
-import LeafletMap from '../componetents/Leaflet';
+import LeafletMap from '../components/Leaflet';
 
 var CardLeaflet = React.createClass({
     render: function() {

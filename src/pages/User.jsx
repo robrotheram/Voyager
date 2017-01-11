@@ -1,85 +1,119 @@
 import React from 'react';
-import Nav from '../componetents/Nav';
-import SideNav from '../componetents/SideNav';
+import { connect } from 'react-redux'
+import Gravatar from 'react-gravatar';
 
-
+import store from '../store';
+import * as Actions from '../actions/auth';
 const User = React.createClass({
-    getInitialState: function () {
-        return { checked: false };
+    getInitialState() {
+        return { errors: null };
     },
-    onChildChanged: function(newState) {
-        this.setState({ checked: newState });
+    componentDidMount(){
+        store.dispatch({type:"REQ_RESET"});
+    },
+    updateForm(){
+        this.refs.email.value = this.props.auth.email;
+    },
+    componentDidUpdate(){
+        this.updateForm();
+    },
+    checkPassword(str) {
+        var re = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
+        return re.test(str);
+    },
+    handleSubmit(event) {
+        event.preventDefault();
+        const email = this.refs.email.value;
+        const pass = this.refs.pass.value;
+        const pass2 = this.refs.pass2.value;
+        var token = this.props.auth.token;
+
+        if((pass!=undefined) && (pass != "")) {
+            if (pass != pass2) {
+                return this.setState({errors: "Passwords Do Not Match"});
+            }
+            if (!this.checkPassword(pass)) {
+                return this.setState({errors: "Password too week"});
+            }
+            store.dispatch(Actions.updateUser(token, email, pass))
+        }else{
+            store.dispatch(Actions.updateEmail(token, email))
+        }
     },
     render(){
         return (
             <div>
-                <Nav initialChecked={this.state.checked} callbackParent={this.onChildChanged} />
-                <div id="wrapper" className={this.state.checked ? 'toggled' : ''}>
-                    <SideNav/>
-                    <div id="page-content-wrapper" className="wrapper-content">
-                        <div className="widget-header cover overlay" >
-                            <img className="cover-image" src="src/images/bg.png"/>
-                            <div className="overlay-panel overlay-background vertical-align">
-                                <div className="vertical-align-middle">
-                                    <a className="">
-                                        <img className="widget-avatar" width="80px" height="80px" src="src/images/mc/Minecraft Skeleton.png" alt="" />
-                                    </a>
-                                    <div className="font-size-20 margin-top-10">MACHI</div>
-                                    <div className="font-size-14">machidesign@163.com</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="container-fluid user-content">
-                        <br/>
-                        <div className="row ">
-                            <div className="col-lg-12">
-                                <h1>Edit Profile</h1>
-                            </div>
-                        </div>
-                            <div className="row">
-                                <div className="col-md-12 personal-info">
-                                    <form className="form-horizontal" role="form">
-                                        <table className="table borderless">
-                                            <tbody>
-                                                <tr>
-                                                    <td>Profile Name:</td>
-                                                    <td><input className="form-control" type="text" defaultValue="Jane"/></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Group:</td>
-                                                    <td><input className="form-control" type="text" defaultValue=""/></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Email:</td>
-                                                    <td><input className="form-control" type="text" defaultValue="janesemail@gmail.com"/></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Password:</td>
-                                                    <td> <input className="form-control" type="password" defaultValue="11111122333"/></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Confirm password:</td>
-                                                    <td><input className="form-control" type="password" defaultValue="11111122333"/></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <div className="form-group">
-                                            <div className="col-md-3 col-lg-offset-3">
-                                                <input type="button" className="btn btn-primary" defaultValue="Save Changes"/>
-                                            </div>
-                                            <div className="col-md-3">
-                                                    <input type="reset" className="btn btn-default" defaultValue="Cancel"/>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+                <div className="widget-header cover overlay" >
+                    <div className="overlay-panel overlay-background vertical-align">
+                        <div className="vertical-align-middle">
+                            <a className="">
+                                <Gravatar className="widget-avatar" width="80px" height="80px" size={100} email={this.props.auth.email} />
+                            </a>
+                            <div className="font-size-20 margin-top-10">{this.props.auth.username}</div>
+                            <div className="font-size-14">{this.props.auth.email}</div>
                         </div>
                     </div>
-               </div>
-           </div>
+                </div>
+                <div className="card content">
+                    <div className="card-header white-text cyan server-heading">
+                        <h1>Update Profile</h1>
+                        <ul className="panel-info" style={{float:"left"}}>
+                            <li>
+                                {this.props.api.fetching && (
+                                    <span className="label label-info">Updating</span>
+                                )}
+                                {this.props.api.error && (
+                                    <span className="label label-danger">Update failed</span>
+                                )}
+                                {this.props.api.complete && (
+                                    <span className="label label-success">Update Success</span>
+                                )}
+                            </li>
+                        </ul>
+
+                    </div>
+                    <div className="panel-body">
+                        <form onSubmit={this.handleSubmit} className="form-horizontal" role="form">
+                            <table className="table borderless">
+                                <tbody>
+                                <tr>
+                                    <td>Email</td>
+                                    <td>
+                                        <input type="text" ref="email" id="form1" className="form-control" defaultValue={this.props.auth.email} />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Password </td>
+                                    <td>
+                                        <input type="password" ref="pass" id="form1" className="form-control" placeholder="password" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Password</td>
+                                    <td>
+                                        <input type="password" ref="pass2" id="form1" className="form-control" placeholder="password" />
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div className="form-group">
+                                <div className="col-md-3 col-lg-offset-3">
+                                    <input type="submit" className="btn btn-primary" defaultValue="Update"/>
+                                </div>
+                                <div className="col-md-3">
+                                    <button onClick={this.updateForm} className="btn btn-default btn-block">Cancel</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
         );
     }
 });
-
-export default User;
+const mapStateToProps = store => {
+    return { auth: store.User, api: store.api }
+};
+export default connect(mapStateToProps)(User);
