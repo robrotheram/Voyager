@@ -40,7 +40,7 @@ export function authLogin(username, password) {
     return function(dispatch) {
         dispatch({type: 'REQ_DATA'});
         return axios({
-            url: "http://127.0.0.1:8888/users/auth",
+            url: "http://192.168.1.173:8888/users/auth",
             timeout: 20000,
             crossDomain: true,
             method: 'post',
@@ -86,7 +86,7 @@ export function authRegistered(username, email, password) {
     return function(dispatch) {
         dispatch({type: 'REQ_DATA'});
         return axios({
-            url: "http://127.0.0.1:8888/users/register",
+            url: "http://192.168.1.173:8888/users/register",
             timeout: 20000,
             crossDomain: true,
             method: 'post',
@@ -115,7 +115,7 @@ export function updateUser(token, email, password) {
     return function(dispatch) {
         dispatch({type: 'REQ_DATA'});
         return axios({
-            url: "http://127.0.0.1:8888/users/update",
+            url: "http://192.168.1.173:8888/users/update",
             timeout: 20000,
             crossDomain: true,
             method: 'post',
@@ -141,7 +141,7 @@ export function updateEmail(token, email) {
     return function(dispatch) {
         dispatch({type: 'REQ_DATA'});
         return axios({
-            url: "http://127.0.0.1:8888/users/update",
+            url: "http://192.168.1.173:8888/users/update",
             timeout: 20000,
             crossDomain: true,
             method: 'post',

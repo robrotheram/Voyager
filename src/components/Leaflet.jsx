@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { connect } from 'react-redux'
+
 var LeafletMap = React.createClass({
     componentDidMount: function() {
         let element = ReactDOM.findDOMNode(this);
@@ -23,8 +25,9 @@ var LeafletMap = React.createClass({
                     return tile;
                 }
             });
-            L.tileLayer('http://localhost:8888/{server}/tile/{world}/{z}/{x}/{y}', {
-                server:"testACCOUNT",
+            
+            L.tileLayer('http://192.168.1.173:8888/{server}/tile/{world}/{z}/{x}/{y}', {
+                server: this.props.Server.server,
                 world:"world"
             }).addTo(this.map);
             L.gridLayer.debugCoords = function(opts) {
@@ -39,13 +42,21 @@ var LeafletMap = React.createClass({
         this.map = null;
     },
     onMapClick: function() {
-       alert("dsssdsdsd");
+       alert("map clicked");
     },
     render: function() {
         return (
-            <div className='map'></div>
+            <div className='map'>{this.props.Server.server}</div>
         );
     }
 });
 
-export default LeafletMap;
+const mapStateToProps = store => {
+    console.log(store);
+    return {
+        Server: store.Server
+    }
+};
+
+export default connect(mapStateToProps)(LeafletMap);
+

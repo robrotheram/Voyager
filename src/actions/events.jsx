@@ -4,7 +4,7 @@ export function getEvents(token, server, time,delta) {
     return function(dispatch) {
         dispatch({type: 'REQ_DATA'});
         return axios({
-            url: "http://127.0.0.1:8888/v1/"+server+"/events",
+            url: "http://192.168.1.173:8888/v1/"+server+"/events",
             timeout: 20000,
             crossDomain: true,
             method: 'get',

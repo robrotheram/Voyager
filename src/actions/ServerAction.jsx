@@ -4,7 +4,7 @@ export function regenAPI(token,servername, router) {
     return function(dispatch) {
         dispatch({type: 'REQ_DATA'});
         return axios({
-            url: "http://127.0.0.1:8888/v1/server/regen",
+            url: "http://192.168.1.173:8888/v1/server/regen",
             timeout: 20000,
             crossDomain: true,
             headers: {
@@ -29,7 +29,7 @@ export function update(token,servernameold,servername,desciption, ipaddress) {
     return function(dispatch) {
         dispatch({type: 'REQ_DATA'});
         return axios({
-            url: "http://127.0.0.1:8888/v1/server/update",
+            url: "http://192.168.1.173:8888/v1/server/update",
             timeout: 20000,
             crossDomain: true,
             headers: {
@@ -53,11 +53,12 @@ export function update(token,servernameold,servername,desciption, ipaddress) {
             })
     }
 };
+
 export function add(token,servername,desciption, ipaddress) {
     return function(dispatch) {
         dispatch({type: 'REQ_DATA'});
         return axios({
-            url: "http://127.0.0.1:8888/v1/server/update",
+            url: "http://192.168.1.173:8888/v1/server/update",
             timeout: 20000,
             crossDomain: true,
             headers: {
@@ -84,7 +85,7 @@ export function get(token,router) {
     console.log("server data is requested *****");
     return function(dispatch) {
         return axios({
-            url: "http://127.0.0.1:8888/v1/server/list",
+            url: "http://192.168.1.173:8888/v1/server/list",
             timeout: 20000,
             crossDomain: true,
             headers: {
